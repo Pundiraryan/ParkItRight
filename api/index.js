@@ -309,4 +309,41 @@ app.get("/api/bookings", async (req, res) => {
     res.json(await Booking.find({ user: userData.id }).populate("place"));
 });
 
+//report routes
+app.post("/report",async (req,res)=>{
+    try {
+        const {
+            Reg_no,
+            address,
+            photos,
+            Vtype,
+        } = req.body;
+        const report = await Report.create({
+          Reg_no,  
+          address,
+          photos,
+          Vtype,
+        });
+        res.status(200).json({
+          report,
+        });
+      } catch (err) {
+        res.status(500).json({
+          message: 'Internal server error',
+          error: err,
+        });
+      }
+});
+app.get('/report/view',async(req,res)=>{
+    try {
+        const report = await Report.find({active:true});
+        res.status(200).json({
+          report,
+        });
+      } catch (err) {
+        res.status(500).json({
+          message: 'Internal server error',
+        });
+      }
+})
 app.listen(4000);
