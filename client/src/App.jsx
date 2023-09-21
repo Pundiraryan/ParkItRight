@@ -12,6 +12,7 @@ import PlacesForm from './components/PlacesForm'
 import SinglePage from './components/SinglePage'
 import Bookings from './components/Bookings'
 import SingleBooking from './components/SingleBooking'
+import ReportPage from './components/ReportPage'
 
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL ;
 axios.defaults.withCredentials = true;
@@ -27,6 +28,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/account" element={<Account />} />
         <Route path="/account/booking" element={<Bookings/>} />
+        <Route path="/report" element={<ReportPage/>} />
         <Route path="/account/booking/:id" element={<SingleBooking/>} />
         <Route path="/account/:subpage?" element={<Account />} />
         <Route path="/account/places" element={<PlacesPage/>} />
