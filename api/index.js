@@ -346,4 +346,25 @@ app.get('/report/view',async(req,res)=>{
         });
       }
 })
+//suggest nearest parking -- by the nearest longitudes and latitudes
+app.post('/recommendnearestplace',async (req,res)=>{
+    try {
+        const {latitude,longitude}=req.body;
+        const nearestparkingcoordinates = await Place.find({
+            location : {
+              $near : {
+                    $geometry : {
+                        type : "Point",
+                        coordinates : [longitude,latitude]
+                    }, 
+                    $maxDistance : 5000       
+                }
+            }
+        }).exec();
+        console.log(nearestparkingcoordinates.length);
+        return nearestparkingcoordinates;
+    } catch (error) {
+        console.log(error);
+    }
+})
 app.listen(4000);

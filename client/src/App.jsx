@@ -33,7 +33,6 @@ function App() {
         <Route path="/account/places/new" element={<PlacesForm />} />
         <Route path="/account/places/:id" element={<PlacesForm />} />
         <Route path="/places/:id" element={<SinglePage />} />
-
       </Route>
     </Routes>
 
