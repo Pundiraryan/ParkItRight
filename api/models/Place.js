@@ -15,4 +15,19 @@ const PlaceSchema = new mongoose.Schema({
 })
 
 const PlaceModel = mongoose.model('Place' , PlaceSchema)
+// 2d  indexing for nearest 
+// PlaceSchema.index({"location": "2dsphere"});
+// location : {
+//     type : {
+//         type : String,
+//         required : false,
+//         default : "Point"
+//     },
+//     address : {
+//         type : String
+//     },
+//     coordinates : {
+//         type : [Number]
+//     }
+// }
 module.exports = PlaceModel
