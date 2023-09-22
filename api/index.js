@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const User = require("./models/User.js");
 const Place = require("./models/Place.js");
 const Booking = require("./models/Booking.js");
+const Report=require('./models/Report.js');
 const app = express();
 const cookieParser = require("cookie-parser");
 const imageDownloader = require("image-downloader");
@@ -322,15 +323,16 @@ app.post("/report",async (req,res)=>{
             photos,
             Vtype,
         } = req.body;
+        console.log(req.body);
         const report = await Report.create({
           Reg_no,  
           address,
           photos,
           Vtype,
         });
-        res.status(200).json({
-          report,
-        });
+        res.status(201).json({
+            message:'sucess'
+        })
       } catch (err) {
         res.status(500).json({
           message: 'Internal server error',
@@ -340,9 +342,10 @@ app.post("/report",async (req,res)=>{
 });
 app.get('/report/view',async(req,res)=>{
     try {
-        const report = await Report.find({active:true});
+        const report = await Report.find({Active_:true});
         res.status(200).json({
-          report,
+          message:"sucess",
+          report
         });
       } catch (err) {
         res.status(500).json({

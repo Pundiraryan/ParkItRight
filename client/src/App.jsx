@@ -2,6 +2,7 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Login from './components/Login'
 import Index from './components/Home'
+import Profile from './views/admin/profile';
 import Layout from './Layout'
 import Register from './components/Register'
 import axios from 'axios'
@@ -23,6 +24,7 @@ function App() {
   return (
     <UserContextProvider>
     <Routes>
+        {/* <Route path='/admin/enlist_request' element={<Profile/>}/> */}
         <Route path="admin/*" element={<AdminLayout />} />
         <Route path='/' element={<Layout />}>
         <Route index element={<Index />} />
