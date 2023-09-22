@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
-import AccountNav from './AccountNav'
+//import AccountNav from './AccountNav'
 import Perks from './Perks'
 import PhotoUploader from './PhotoUploader'
 
@@ -18,6 +18,52 @@ const ReportForm = () => {
     //const [checkOut, setCheckOut] = useState('')
     //const [maxGuests, setMaxGuests] = useState(1)
     const [redirect, setRedirect] = useState(false)
+
+    
+    const handleApiRequest = async () => {
+        try {
+          if (!addedPhotos) {
+            console.error('No photo selected.');
+            return;
+          }
+    
+          // Create a FormData object to send the photo
+          const formData = new FormData();
+          formData.append('photo', addedPhotos);
+    
+          // Make the first API request to the Flask API
+          const response = await axios.post('http://your-flask-api-url/upload-photo', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          });
+    
+          const { result } = response.data;
+    
+          // Check the result from the first API request
+          if (result === true) {
+            // If the result is true, make a further request to another API
+            const dataToSend = {
+              // Add variables from the request body as needed
+              variable1: 'value1',
+              variable2: 'value2',
+            };
+    
+            const secondApiResponse = await axios.post('http://another-api-url', dataToSend);
+    
+            // Handle the response from the second API as needed
+            console.log('Second API Response:', secondApiResponse.data);
+          } else {
+            // If the result is false, do nothing
+            console.log('Result is false. No further action required.');
+          }
+    
+          // Set the result state based on the response from the first API
+          setResult(result);
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
 
     // useEffect(() => {
     //     if (!id) {
@@ -70,14 +116,16 @@ const ReportForm = () => {
         }
 
     }
-
+    const toHome = () => {
+        return <Navigate to={'/'} />;
+      };
     if (redirect) {
         return <Navigate to={'/'} />
     }
     return (
         <div>
             {/* <AccountNav /> */}
-            <form onSubmit={savePlace}>
+            <form onSubmit={toHome}>
                 {/* {preInput('Title', 'Title for your place . should be short and catchy as in advertisment')}
                 <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder='Title' /> */}
                 {preInput('Location', 'Add location of No-parking')}
