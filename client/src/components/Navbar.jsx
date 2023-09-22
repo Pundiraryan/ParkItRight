@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../userContext'
-import globe from '../assets/world-globe.png'
+// import globe from '../assets/world-globe.png'
 import park from '../assets/parking.png'
 import report from '../assets/air-horn.png'
 const Navbar = () => {

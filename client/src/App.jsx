@@ -23,6 +23,8 @@ function App() {
   return (
     <UserContextProvider>
     <Routes>
+        <Route path="admin/*" element={<AdminLayout />} />
+        <Route path='/' element={<Layout />}>
         <Route index element={<Index />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -35,8 +37,6 @@ function App() {
         <Route path="/account/places/new" element={<PlacesForm />} />
         <Route path="/account/places/:id" element={<PlacesForm />} />
         <Route path="/places/:id" element={<SinglePage />} />
-        <Route path="admin/*" element={<AdminLayout />} />
-      <Route path='/' element={<Layout />}>
       {/* <Route path="/" element={<Navigate to="/admin" replace />} /> */}
         {/* <Route path="/report" element={<Report />} /> */}
       </Route>
