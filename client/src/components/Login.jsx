@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { UserContext } from '../userContext';
+// import { Toast } from 'react-toastify/dist/types';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,11 +21,11 @@ const Login = () => {
       )
       setUser(response.data)
       // console.log(user);
-      alert('Login Succesful')
+      toast.success('Login Succesful')
       setRedirect(true)
 
     } catch (error) {
-      alert(error)
+      toast.error(error)
 
 
     }
