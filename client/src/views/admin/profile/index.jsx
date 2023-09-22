@@ -1,10 +1,14 @@
+// import React from "react";
+import React,{ useState,useEffect } from "react";
+import axios from "axios";
 const ProfileOverview = () => {
   const [cruds, setCruds] = useState({});
 
 	useEffect(function () {
 		async function getCruds() {
 			try {
-				const response = await axios.get("/report/view");
+				const response = await axios.get("http://127.0.0.1:4000/report/view");
+        console.log(response);
 				setCruds(response);
 			} catch (error) {
 				console.log("error", error);
@@ -13,12 +17,6 @@ const ProfileOverview = () => {
 		getCruds();
 	}, []);
   const arr=Object.values(cruds);
-	const handleacceptClick=async()=>{
-
-	}
-  const handlerejectlick=async()=>{
-    
-  }
   return (
     <div className="container">
       <div className="table-responsive">
@@ -38,15 +36,15 @@ const ProfileOverview = () => {
 					{arr &&
 						arr.map((crud) => {
 							return (
-								<tr key={crud._id}>
+								<tr>
 									<td>{crud.Reg_no}</td>
 									<td>{crud.address}</td>
 									<td>{crud.Active_}</td>
 									<td>
-                    <button type="button" className="btn btn-success" onClick={handleacceptClick}>Accept Report</button>
+                    <button type="button" className="btn btn-success">Accept</button>
 									</td>
 									<td>
-                  <button type="button" className="btn btn-danger" onClick={handlerejectlick}>Reject Report</button>
+                  <button type="button" className="btn btn-danger">Reject</button>
 									</td>
 								</tr>
 							);
@@ -59,3 +57,12 @@ const ProfileOverview = () => {
 };
 
 export default ProfileOverview;
+// const ProfileOverview = () => {
+//   return (
+//     <div>
+//       i am here
+//     </div>
+//   );
+// };
+
+// export default ProfileOverview;
