@@ -51,7 +51,35 @@ const PlacesForm = () => {
         )
     }
 
+    async function screen(e){
 
+        const dataToSend = {
+            cost: price,
+            cctv: 0,
+            security: 1,
+            carwash: 0,
+            area: 2
+
+          };
+      
+          // Make a POST request to the backend API
+          axios.post('http://127.0.0.1:8080/api/process-request', dataToSend)
+            .then((response) => {
+              // Handle the response from the backend if needed
+              if(response.data.message==="Accepted"){
+                savePlace()
+              }
+              else{
+                console.log("rejected")
+              }
+            })
+            .catch((error) => {
+              // Handle any errors if the request fails
+              console.error('Error:', error);
+            });
+
+
+    }
     async function savePlace(e) {
         e.preventDefault();
         const placeData = {id, title, address, description, perks, addedPhotos, extraInfo, checkIn, checkOut, maxGuests ,price}
@@ -76,7 +104,7 @@ const PlacesForm = () => {
     return (
         <div>
             <AccountNav />
-            <form onSubmit={savePlace}>
+            <form onSubmit={screen}>
                 {preInput('Title', 'Name of place')}
                 <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder='Title' />
                 {preInput('Address', 'Address of your parking spot')}
