@@ -86,8 +86,8 @@ const ReportForm = () => {
     {/* <img src={bgP} alt="" className='w-[400px]' /> */}
       <div className="container mx-auto flex flex-col md:flex-row my-3 md:my-10">
         <div className="flex flex-col w-full lg:w-1/3 p-8">
-          <p className="ml-6 text-yellow-300 text-lg uppercase tracking-loose">
-            REVIEW
+          <p className="ml-6 text-yellow-300 text-3xl uppercase tracking-loose">
+            REPORT
           </p>
           <p className="text-3xl md:text-5xl my-8 leading-relaxed md:leading-snug">
             Leave us a feedback!
