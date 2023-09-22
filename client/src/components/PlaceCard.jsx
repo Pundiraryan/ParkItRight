@@ -12,20 +12,40 @@ export const PlaceCard = ({place,index}) => {
 
    
 
-    factors=[2,3,4,5]
-  
-    const [result, setResult] = useState(0);
+    const [price, setPrice] = useState(0);
+    const [city, setCity] = useState('');
   
     const calculatePrice = () => {
-      // Send a POST request to your Flask API
-      axios.post('/calculate-price', factors)
+      // Create a JSON object with "price" and "city" variables
+      const dataToSend = {
+        price: place.price,
+        city: place.city,
+      };
+  
+      // Make a POST request to the backend API
+      axios.post('http://127.0.0.1:8080/api/prd', dataToSend)
         .then((response) => {
-          setResult(response.data.price); // Assuming the API returns a "price" field in the response
+          // Handle the response from the backend if needed
+          setResult(response.data.price);
         })
         .catch((error) => {
+          // Handle any errors if the request fails
           console.error('Error:', error);
         });
     };
+  
+    const [result, setResult] = useState(0);
+  
+    // const calculatePrice = () => {
+    //   // Send a POST request to your Flask API
+    //   axios.post('/calculate-price', factors)
+    //     .then((response) => {
+    //       setResult(response.data.price); // Assuming the API returns a "price" field in the response
+    //     })
+    //     .catch((error) => {
+    //       console.error('Error:', error);
+    //     });
+    // };
   return (
     <>
     <button onClick={calculatePrice}>Calculate Price</button>

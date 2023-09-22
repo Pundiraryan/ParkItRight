@@ -5,7 +5,7 @@ import AccountNav from './AccountNav'
 import Perks from './Perks'
 import PhotoUploader from './PhotoUploader'
 
-const PlacesForm = () => {
+const ReportForm = () => {
     const { id } = useParams()
     //const [price , setPrice] = useState(100)
     //const [title, setTitle] = useState("")
@@ -19,27 +19,27 @@ const PlacesForm = () => {
     //const [maxGuests, setMaxGuests] = useState(1)
     const [redirect, setRedirect] = useState(false)
 
-    useEffect(() => {
-        if (!id) {
-            return;
-        }
+    // useEffect(() => {
+    //     if (!id) {
+    //         return;
+    //     }
 
-        axios.get('/places/' + id)
-        .then(response => {
-            const { data } = response
-           // setTitle(data.title);
-            setAddress(data.address);
-            setAddedPhotos(data.photos)
-            setDescription(data.description)
-           // setExtraInfo(data.extraInfo)
-           // setCheckIn(data.checkIn)
-           // setCheckOut(data.checkOut)
-           // setPerks(data.perks)
-           // setMaxGuests(data.maxGuests)
-           // setPrice(data.price)
-        })
+    //     axios.get('/places/' + id)
+    //     .then(response => {
+    //         const { data } = response
+    //        // setTitle(data.title);
+    //         setAddress(data.address);
+    //         setAddedPhotos(data.photos)
+    //         setDescription(data.description)
+    //        // setExtraInfo(data.extraInfo)
+    //        // setCheckIn(data.checkIn)
+    //        // setCheckOut(data.checkOut)
+    //        // setPerks(data.perks)
+    //        // setMaxGuests(data.maxGuests)
+    //        // setPrice(data.price)
+    //     })
 
-    }, [id])
+    // }, [id])
 
     function preInput(header, description) {
         return (
@@ -123,4 +123,4 @@ const PlacesForm = () => {
     )
 }
 
-export default PlacesForm
+export default ReportForm
