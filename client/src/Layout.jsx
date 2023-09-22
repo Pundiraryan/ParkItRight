@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 
 const Layout = () => {
   return (
-    <div className='py-6 font-primary flex flex-col min-h-screen'>
+    <div className='font-primary flex flex-col min-h-screen'>
       <Navbar/>
       <Outlet/>
     </div>

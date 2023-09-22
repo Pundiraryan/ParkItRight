@@ -56,10 +56,6 @@ const Register = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                     
-
-                     
-
                     <div className="mt-6">
                     <button type="submit" className="primary">Register</button>
                     <div className="text-center py-3 text-gray-500">
