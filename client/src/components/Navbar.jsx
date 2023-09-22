@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../userContext'
-import globe from '../assets/world-globe.png'
+// import globe from '../assets/world-globe.png'
 import park from '../assets/parking.png'
 import report from '../assets/air-horn.png'
 const Navbar = () => {
@@ -10,7 +10,7 @@ const Navbar = () => {
         <>
   {/* Main navigation container */}
   <nav
-    className="relative flex w-full flex-wrap items-center justify-between bg-white py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-white lg:py-2"
+    className="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-white py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-white lg:py-2"
     data-te-navbar-ref=""
   >
     <div className="flex w-full flex-wrap items-center justify-between px-3">
@@ -54,7 +54,7 @@ const Navbar = () => {
       </button>
       {/* Collapsible navbar container */}
       <div
-        className="!visible mt-2 hidden flex-grow basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto"
+        className="!visible mt-2 hidden flex-grow basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto pr-3"
         id="navbarSupportedContent4"
         data-te-collapse-item=""
       >
@@ -135,7 +135,7 @@ const Navbar = () => {
                      {/* <img src={report} alt="" className='w-[40px]' />
                      <span className='font-bold text-xl text-primary'>Report</span>
                      */}
-                     <div className="px-2 flex items-center overflow-hidden rounded-full border hover:shadow-lg">
+                     <div className="px-2 py-1 bg-red-400 flex items-center overflow-hidden rounded-full border hover:shadow-lg">
                          <img
                              className="h-10 w-10 md:h-10 md:w-10"
                              src={report}

@@ -38,8 +38,8 @@ const Login = () => {
 
 
   return (
-    <div className='mt-4 grow flex items-center justify-around h-screen bg-gray-200'>
-      <div className='h-3/5 w-3/5 mb-40 border-black-400 rounded-full md:border text-black hover:shadow-xl shadow-sm px-8 py-12 bg-white'>
+    <div className='mt-10 grow flex items-center justify-around h-screen bg-gray-100 py-12'>
+      <div className='h-3/5 w-3/5 border-black-400 rounded-full md:border text-black hover:shadow-xl shadow-sm px-8 py-12 bg-white'>
         <h1 className='text-5xl text-center mb-4'>Login</h1>
         <form className='max-w-sm mx-auto' onSubmit={handleLoginUser} >
           <input
