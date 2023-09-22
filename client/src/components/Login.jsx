@@ -38,10 +38,10 @@ const Login = () => {
 
 
   return (
-    <div className='mt-4 grow flex items-center justify-around h-screen bg-gray-200'>
-      <div className='h-3/5 w-3/5 mb-40 border-black-400 rounded-full md:border text-black hover:shadow-xl shadow-sm px-8 py-12 bg-white'>
+    <div className='mt-10 grow flex items-center justify-around h-screen bg-sky-800 py-12'>
+      <div className='h-3/5 w-2/5 border-black-500 rounded-3xl  md:border text-black hover:shadow-xl shadow-sm px-8 py-8 bg-white'>
         <h1 className='text-5xl text-center mb-4'>Login</h1>
-        <form className='max-w-sm mx-auto' onSubmit={handleLoginUser} >
+        <form className='max-w-md mx-auto' onSubmit={handleLoginUser} >
           <input
             type="email"
             placeholder="your@email.com"
@@ -54,7 +54,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div className='mt-5'>
+          <div className='mt-3'>
           <button className='primary' type='submit'>Login</button>
           </div>
           <div className='text-center py-2 text-gray-500'>

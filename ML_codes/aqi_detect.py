@@ -12,7 +12,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df=pd.read_csv("project1.csv")
+df=pd.read_csv('C:\\Users\\lenovo\\Documents\\all_docs\\development\\Finalproject\\ParkItRight-Final\\ML_codes\\aqi_detect.csv')
 
 df.head(20)
 
@@ -50,7 +50,6 @@ color={
     "delhi":2,
     "mumbai":1,
     "New York":2
-
 }
 
 from flask import Flask,jsonify,request
@@ -87,7 +86,7 @@ def process_array():
 
 # Convert the AQI to an integer
         aqi = int(aqi_part)
-        arr=[1,aqi,color_code,price]
+        arr=[0,aqi,color_code,price]
         # Check if the request data is a list (array)
         if isinstance(arr, list):
             #python_list = request_data.tolist()

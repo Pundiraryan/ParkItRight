@@ -47,11 +47,11 @@ const PhotoUploader = ({ addedPhotos, onChange }) => {
         <>
             <div className='flex gap-2  '>
                 <input type="text" value={photoLink} onChange={e => setPhotoLink(e.target.value)} placeholder='Add using link /.jpg' />
-                {/* <button className='bg-gray-200 px-4 rounded-2xl text-sm' onClick={addPhotoByLink}>Add Photo</button> */}
+                <button className='bg-gray-200 px-4 rounded-2xl text-sm' onClick={addPhotoByLink}>Add Photo</button>
             </div>
-            <div className='grid grid-cols-3 gap-2 md:grid-cols-4 lg:grid-cols-6 mt-4'>
+            <div className='grid grid-cols-3 gap-2 md:grid-cols-4 lg:grid-cols-6 mt-2'>
                 {addedPhotos.length > 0 && addedPhotos.map((link, index) => (
-                    <div key={index} className='h-48 flex relative '>
+                    <div key={index} className='h-44 flex relative '>
                         <img className="rounded-xl w-full object-cover position-center" src={link} alt="" />
                         <button onClick={e => removePhoto(e,link)} className='cursor pointer absolute bottom-1 right-1 text-white bg-black bg-opacity-75 p-1 rounded-full'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
@@ -59,14 +59,17 @@ const PhotoUploader = ({ addedPhotos, onChange }) => {
                             </svg>
 
                         </button>
-                        <button onClick={e => selectMainPhoto(e,link)} className='cursor pointer absolute bottom-1 left-1 text-white bg-black bg-opacity-75 p-1 rounded-full'>
+                        <button onClick={e => selectMainPhoto(e,link)} className='cursor pointer absolute bottom-1 left-2 text-white bg-black bg-opacity-75 p-1 rounded-full'>
                             <svg xmlns="http://www.w3.org/2000/svg" fill={link === addedPhotos[0]?"currentColor":" "} viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 ">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
                             </svg>
                         </button>
                     </div>
                 ))}
-                <label className='h-32 cursor-pointer flex items-center gap-3 justify-center  border  bg-gray-200 rounded-xl p-2 text-l text-gray-600'>
+                {/* <label className='h-24 w-36 mx-36 mb-4 cursor-pointer flex items-center gap-3 justify-center  border  bg-gray-20 rounded-2xl p-2 text-l text-gray-600'> */}
+                <label class="h-24 w-full sm:w-36 sm:mx-48 mb-4 cursor-pointer flex items-center gap-2 sm:gap-3 justify-center border bg-gray-200 rounded-2xl p-2 text-base sm:text-lg text-gray-600">
+
+
                     <input type={'file'} multiple className='hidden' onChange={uploadPhoto} />
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
