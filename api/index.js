@@ -345,7 +345,6 @@ app.get('/report/view',async(req,res)=>{
     try {
         const report = await Report.find({Active_:true});
         res.status(200).json({
-          message:"sucess",
           report
         });
       } catch (err) {

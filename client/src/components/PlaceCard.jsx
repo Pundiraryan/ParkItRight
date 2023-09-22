@@ -6,7 +6,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Loading from './Loading'
 //import { PlaceCard } from './PlaceCard'
-export const PlaceCard = ({place,index}) => {
+export const PlaceCard = ({place,key}) => {
     
     // const [factors, setFactors] = useState({
     //   factor1: 0,
@@ -59,7 +59,7 @@ export const PlaceCard = ({place,index}) => {
   return (
     <>
     <button onClick={calculatePrice}>Calculate Price</button>
-    <Link to={"/places/" + place._id} key={index}>
+    <Link to={"/places/" + place._id} key={key}>
         <div className='bg-gray-200 mb-4 rounded-2xl flex '>
           {place.photos?.[0] && (
             <img className="rounded-2xl object-cover aspect-square" src={place.photos[0]} alt="" />

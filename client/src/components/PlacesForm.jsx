@@ -51,23 +51,29 @@ const PlacesForm = () => {
         )
     }
 
-    async function screen(e){
+    function screen(e){
+        e.preventDefault();
+        //console.log("hello world")
 
         const dataToSend = {
-            cost: price,
-            cctv: 0,
-            security: 1,
-            carwash: 0,
-            area: 2
+            cost: parseInt(price),
+            cctv: 1,
+            security: 0,
+            carwash: 1,
+            area: 1
 
           };
+          console.log(dataToSend)
       
           // Make a POST request to the backend API
-          axios.post('http://127.0.0.1:8080/api/process-request', dataToSend)
+          axios.post('http://127.0.0.1:8080/process-request', dataToSend)
             .then((response) => {
               // Handle the response from the backend if needed
               if(response.data.message==="Accepted"){
-                savePlace()
+                setRedirect(true)
+                console.log("accepted") 
+                savePlace(e)
+
               }
               else{
                 console.log("rejected")

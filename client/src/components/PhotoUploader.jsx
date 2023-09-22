@@ -66,7 +66,7 @@ const PhotoUploader = ({ addedPhotos, onChange }) => {
                     </div>
                 ))}
                 {/* <label className='h-24 w-36 mx-36 mb-4 cursor-pointer flex items-center gap-3 justify-center  border  bg-gray-20 rounded-2xl p-2 text-l text-gray-600'> */}
-                <label class="h-24 w-full sm:w-36 sm:mx-48 mb-4 cursor-pointer flex items-center gap-2 sm:gap-3 justify-center border bg-gray-200 rounded-2xl p-2 text-base sm:text-lg text-gray-600">
+                <label className="h-24 w-full sm:w-36 sm:mx-48 mb-4 cursor-pointer flex items-center gap-2 sm:gap-3 justify-center border bg-gray-200 rounded-2xl p-2 text-base sm:text-lg text-gray-600">
 
 
                     <input type={'file'} multiple className='hidden' onChange={uploadPhoto} />

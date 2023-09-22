@@ -3,20 +3,32 @@ import React,{ useState,useEffect } from "react";
 import axios from "axios";
 const ProfileOverview = () => {
   const [cruds, setCruds] = useState({});
-
+  const [resp,setResp]=useState({});
 	useEffect(function () {
 		async function getCruds() {
 			try {
 				const response = await axios.get("http://127.0.0.1:4000/report/view");
         console.log(response);
-				setCruds(response);
+        setResp(response);
+				// setCruds((data) => [
+        //   ...data,
+        //   ...response.map(({_id,Reg_no,address,photos,Active_,__v}) => ({
+        //     _id,
+        //     Reg_no,
+        //     address,
+        //     photos,
+        //     Active_,
+        //     __v
+        //   })),
+        // ]);
 			} catch (error) {
 				console.log("error", error);
 			}
 		}
 		getCruds();
 	}, []);
-  const arr=Object.values(cruds);
+  const arr=Object.entries(cruds);
+  // console.log(arr.length);
   return (
     <div className="container">
       <div className="table-responsive">
@@ -32,9 +44,16 @@ const ProfileOverview = () => {
 						<th>Decline</th>
 					</tr>
 				</thead>
-				<tbody>
-					{arr &&
-						arr.map((crud) => {
+        {arr.map((crud) => {
+				return (
+					<div key={crud._id}>
+            hello
+					</div>
+				);
+			})}
+				{/* <tbody>
+					{cruds &&
+						cruds.map((crud) => {
 							return (
 								<tr>
 									<td>{crud.Reg_no}</td>
@@ -49,7 +68,7 @@ const ProfileOverview = () => {
 								</tr>
 							);
 						})}
-				</tbody>
+				</tbody> */}
 			</table>
 			</div>
 		</div>
