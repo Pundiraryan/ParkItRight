@@ -47,7 +47,7 @@ const PhotoUploader = ({ addedPhotos, onChange }) => {
         <>
             <div className='flex gap-2  '>
                 <input type="text" value={photoLink} onChange={e => setPhotoLink(e.target.value)} placeholder='Add using link /.jpg' />
-                {/* <button className='bg-gray-200 px-4 rounded-2xl text-sm' onClick={addPhotoByLink}>Add Photo</button> */}
+                <button className='bg-gray-200 px-4 rounded-2xl text-sm' onClick={addPhotoByLink}>Add Photo</button>
             </div>
             <div className='grid grid-cols-3 gap-2 md:grid-cols-4 lg:grid-cols-6 mt-4'>
                 {addedPhotos.length > 0 && addedPhotos.map((link, index) => (
