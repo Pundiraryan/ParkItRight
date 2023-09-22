@@ -144,11 +144,15 @@ app.post("/api/logout", (req, res) => {
 //Photo Upload by link
 app.post("/api/upload-by-link", async (req, res) => {
     const { link } = req.body;
+    console.log('below');
+    console.log(link);
     try{
+        // cloudinary.uploader.upload()
         const result = await cloudinary.uploader.upload(link , {
             folder : "upload" , 
             allowed_formats : ["jpg" , "jpeg" , "png" , "gif"]
         })
+        console.log(result);
         res.json(result.secure_url)
     }catch(error){
         res.status(500).json({ error: "Failed to upload image to Cloudinary" });
