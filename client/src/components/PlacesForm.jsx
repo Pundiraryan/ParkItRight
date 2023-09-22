@@ -81,8 +81,12 @@ const PlacesForm = () => {
                 <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder='Title' />
                 {preInput('Address', 'Address to your place')}
                 <input type="text" value={address} onChange={e => setAddress(e.target.value)} placeholder='Address' />
+                
+                {/* //photo for front// */}
                 {preInput('Photos', 'More = Better')}
                 <PhotoUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
+
+
                 {preInput('Description', 'Describe your place to attract people')}
                 <textarea className='' value={description} onChange={e => setDescription(e.target.value)} />
                 {preInput('Perks', 'Select perks')}
