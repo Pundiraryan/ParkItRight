@@ -18,7 +18,6 @@ const PhotoUploader = ({ addedPhotos, onChange }) => {
             onChange(prev => {
                 return [...prev, ...filenames];
             })
-
         })
     }
 
