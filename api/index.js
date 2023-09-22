@@ -37,7 +37,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 const connectWithDB = () => {
   mongoose.set('strictQuery', false);
   mongoose
-    .connect("mongodb://localhost:27017"
+    .connect(process.env.MONGO_URL
       , {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -309,4 +309,62 @@ app.get("/api/bookings", async (req, res) => {
     res.json(await Booking.find({ user: userData.id }).populate("place"));
 });
 
+//report routes
+app.post("/report",async (req,res)=>{
+    try {
+        const {
+            Reg_no,
+            address,
+            photos,
+            Vtype,
+        } = req.body;
+        const report = await Report.create({
+          Reg_no,  
+          address,
+          photos,
+          Vtype,
+        });
+        res.status(200).json({
+          report,
+        });
+      } catch (err) {
+        res.status(500).json({
+          message: 'Internal server error',
+          error: err,
+        });
+      }
+});
+app.get('/report/view',async(req,res)=>{
+    try {
+        const report = await Report.find({active:true});
+        res.status(200).json({
+          report,
+        });
+      } catch (err) {
+        res.status(500).json({
+          message: 'Internal server error',
+        });
+      }
+})
+//suggest nearest parking -- by the nearest longitudes and latitudes
+app.post('/recommendnearestplace',async (req,res)=>{
+    try {
+        const {latitude,longitude}=req.body;
+        const nearestparkingcoordinates = await Place.find({
+            location : {
+              $near : {
+                    $geometry : {
+                        type : "Point",
+                        coordinates : [longitude,latitude]
+                    }, 
+                    $maxDistance : 5000       
+                }
+            }
+        }).exec();
+        console.log(nearestparkingcoordinates.length);
+        return nearestparkingcoordinates;
+    } catch (error) {
+        console.log(error);
+    }
+})
 app.listen(4000);
