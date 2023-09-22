@@ -37,7 +37,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 const connectWithDB = () => {
   mongoose.set('strictQuery', false);
   mongoose
-    .connect("mongodb://localhost:27017"
+    .connect(process.env.MONGO_URL
       , {
       useNewUrlParser: true,
       useUnifiedTopology: true,

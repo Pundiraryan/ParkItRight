@@ -9,7 +9,7 @@ const PlaceImg = ({ place, index = 0 , className=null }) => {
     }
     return (
         <>
-            <img src={`${place.photos[index]}`} className={className} alt="" />
+            <img src={`${place.photos[index]}`} className={className} alt="nothing to show" />
         </>
     )
 }

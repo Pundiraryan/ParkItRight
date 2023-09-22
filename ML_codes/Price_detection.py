@@ -45,7 +45,14 @@ regr.fit(x, y)
 
 print(regr.predict([[2,250,0,1]]))
 
-from flask import Flask,jsonify,request
+
+color={
+    "delhi":2,
+    "mumbai":1
+
+}
+
+from flask import Flask,jsonify,request,requests
 
 app=Flask(__name__)
 
@@ -58,12 +65,30 @@ def process_array():
         # Get the JSON data from the request body
         request_data = request.get_json()
 
+        
+
+        base_url = "https://api.waqi.info"
+        token = "ee0c40c8c70b6b75820180c6f60d1571c76ee0c5"
+
+        city = request_data.city
+        color_code=color[request_data.city]
+        r = requests.get(base_url + f"/feed/{city}/?token={token}")
+
+        ans="City: {}, Air quality index: {}".format(r.json()['data']['city']['name'], r.json()['data']['aqi'])
+        parts = ans.split(':')
+
+# Extract the AQI part and remove leading/trailing spaces
+        aqi_part = parts[-1].strip()
+
+# Convert the AQI to an integer
+        aqi = int(aqi_part)
+        arr=[request_data.price,aqi_part,color_code,4]
         # Check if the request data is a list (array)
-        if isinstance(request_data, list):
+        if isinstance(arr, list):
             #python_list = request_data.tolist()
             #json_data = json.dumps(python_list)
             # Process the array data as needed
-            result = regr.predict([request_data])
+            result = regr.predict([arr])
             ans={
                 "ans":result[0]
             }
