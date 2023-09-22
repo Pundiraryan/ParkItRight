@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
-//import AccountNav from './AccountNav'
+import AccountNav from './AccountNav'
 import Perks from './Perks'
 import PhotoUploader from './PhotoUploader'
 import backgroundImage from '../assets/bg.png'
@@ -19,52 +19,6 @@ const ReportForm = () => {
     //const [checkOut, setCheckOut] = useState('')
     //const [maxGuests, setMaxGuests] = useState(1)
     const [redirect, setRedirect] = useState(false)
-
-    
-    const handleApiRequest = async () => {
-        try {
-          if (!addedPhotos) {
-            console.error('No photo selected.');
-            return;
-          }
-    
-          // Create a FormData object to send the photo
-          const formData = new FormData();
-          formData.append('photo', addedPhotos);
-    
-          // Make the first API request to the Flask API
-          const response = await axios.post('http://your-flask-api-url/upload-photo', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
-          });
-    
-          const { result } = response.data;
-    
-          // Check the result from the first API request
-          if (result === true) {
-            // If the result is true, make a further request to another API
-            const dataToSend = {
-              // Add variables from the request body as needed
-              variable1: 'value1',
-              variable2: 'value2',
-            };
-    
-            const secondApiResponse = await axios.post('http://another-api-url', dataToSend);
-    
-            // Handle the response from the second API as needed
-            console.log('Second API Response:', secondApiResponse.data);
-          } else {
-            // If the result is false, do nothing
-            console.log('Result is false. No further action required.');
-          }
-    
-          // Set the result state based on the response from the first API
-          setResult(result);
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      };
 
     // useEffect(() => {
     //     if (!id) {
@@ -118,7 +72,7 @@ const ReportForm = () => {
         }
 
     }
-    
+
     if (redirect) {
         return <Navigate to={'/'} />
     }
@@ -139,7 +93,7 @@ const ReportForm = () => {
             In case of negligent parking!
           </p>
           <p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
-            Please help us keep our streets safe and report any cars parked in non-parking zones
+          Please help us keep our streets safe and report any cars parked in non-parking zones
           </p>
         </div>
         <div className="flex flex-col w-full lg:w-5/6 justify-center">
@@ -216,7 +170,15 @@ const ReportForm = () => {
                     </div>
                 </div> */}
                 <div className="text-center mt-6">
-                    <button className="bg-sky-800 text-white text-center mx-auto active:bg-yellow-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1">Confirm Report</button>
+                    {/* <button className="text-black" type="submit">Confirm Report</button> */}
+                    <button
+                          id="feedbackBtn"
+                          className="bg-primary text-white text-center mx-auto active:bg-primary text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                          type="submit"
+                          style={{ transition: "all 0.15s ease 0s" }}
+                        >
+                          Submit
+                        </button>
                 </div>
             </form>
                    
@@ -284,4 +246,5 @@ const ReportForm = () => {
         </div>
     )
 }
+
 export default ReportForm
