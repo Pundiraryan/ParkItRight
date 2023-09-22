@@ -82,7 +82,7 @@ const ReportForm = () => {
   {/* component */}
   <section>
    
-    <div className="bg-black  text-white py-10">
+    <div className="bg-primary  text-white py-10">
     {/* <img src={bgP} alt="" className='w-[400px]' /> */}
       <div className="container mx-auto flex flex-col md:flex-row my-3 md:my-10">
         <div className="flex flex-col w-full lg:w-1/3 p-8">

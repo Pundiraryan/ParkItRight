@@ -77,13 +77,13 @@ const PlacesForm = () => {
         <div>
             <AccountNav />
             <form onSubmit={savePlace}>
-                {preInput('Title', 'Title for your place . should be short and catchy as in advertisment')}
+                {preInput('Title', 'Name of place')}
                 <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder='Title' />
-                {preInput('Address', 'Address to your place')}
+                {preInput('Address', 'Address of your parking spot')}
                 <input type="text" value={address} onChange={e => setAddress(e.target.value)} placeholder='Address' />
                 
                 {/* //photo for front// */}
-                {preInput('Photos', 'More = Better')}
+                {preInput('Photos', 'Attract towards your spot')}
                 <PhotoUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
 
 
@@ -98,22 +98,22 @@ const PlacesForm = () => {
 
                 <div className='grid grid-cols-2 md:grid-cols-4 mt-4 gap-2'>
                     <div>
-                        <h3 className='mt-2 -mb-1 '>Check In Time</h3>
+                        <h3 className='mt-2 -mb-1 '>Slot Open</h3>
                         <input type="number" placeholder='10:10' value={checkIn}
                             onChange={e => setCheckIn(e.target.value)} />
                     </div>
                     <div>
-                        <h3 className='mt-2 -mb-1 '>Check out Time</h3>
+                        <h3 className='mt-2 -mb-1 '>Slot closed</h3>
                         <input type="number" placeholder='20:20' value={checkOut}
                             onChange={e => setCheckOut(e.target.value)} />
                     </div>
                     <div>
-                        <h3 className='mt-2 -mb-1 '>Max guests</h3>
+                        <h3 className='mt-2 -mb-1 '>Max Vehicles</h3>
                         <input type="number" placeholder='Guests' value={maxGuests}
                             onChange={e => setMaxGuests(e.target.value)} />
                     </div>
                     <div>
-                        <h3 className='mt-2 -mb-1 '>Price Per night</h3>
+                        <h3 className='mt-2 -mb-1 '>Price Per Day</h3>
                         <input type="number" placeholder='Guests' value={price}
                             onChange={e => setPrice(e.target.value)} />
                     </div>
