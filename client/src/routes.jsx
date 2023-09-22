@@ -44,7 +44,7 @@ const routes = [
   {
     name: "Enlist request",
     layout: "/admin",
-    path: "enlist_request",
+    path: "enlist",
     icon: <MdPerson className="h-6 w-6" />,
     component: <Profile />
   },
