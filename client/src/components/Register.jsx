@@ -31,8 +31,8 @@ const Register = () => {
       }
 
     return (
-        <div className='mt-4 grow flex items-center justify-around h-screen'>
-        <div className='h-4/5 w-3/5 mb-20 border-black-400 md:border text-black shadow-sm px-8 py-12'>
+        <div className='mt-10 grow flex items-center justify-around h-screen bg-sky-800 py-20'>
+        <div className='h-4/5 w-2/5 border-black-400 rounded-3xl  md:border text-black hover:shadow-xl shadow-sm px-8 py-8 bg-white'>
           {/* <h1 className='text-5xl text-center mb-4'>Login</h1> */}
         {/* <div className="mt-4 grow flex items-center justify-around"> */}
             {/* <div className="mb-64"> */}
@@ -56,7 +56,7 @@ const Register = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <div className="mt-6">
+                    <div className="mt-3">
                     <button type="submit" className="primary">Register</button>
                     <div className="text-center py-3 text-gray-500">
                         Already a member !{" "}

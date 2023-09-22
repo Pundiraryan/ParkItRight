@@ -156,7 +156,7 @@ const ReportForm = () => {
               bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400">
                  {/* {preInput('Location', 'Add location of No-parking')} */}
                  <div className="border-0 px-2 sm:px-3 py-1 rounded w-full sm:w-2/3 lg:w-1/2 mx-48 text-xl sm:text-2xl lg:text-3xl">Location</div>
-<div className="border-0 px-2 sm:px-3 py-1 rounded w-full sm:w-2/3 lg:w-1/2 sm:mx-32 text-lg sm:text-xl lg:text-xl">Add location of No-parking</div>
+<div className="border-0 px-2 sm:px-3 py-1 rounded w-full sm:w-2/3 lg:w-1/2 sm:mx-36 text-lg sm:text-lg lg:text-lg">Add location of No-parking</div>
 
                {/* <div className="border-0 px-3 py-1 rounded  w-full mx-36 text-2xl">Location</div>
                
@@ -169,7 +169,7 @@ const ReportForm = () => {
                 {/* <div className="border-0 px-3 py-1 rounded  w-full mx-36 text-2xl">Photos</div> */}
                 {/* <div className="border-0 px-5 py-1 rounded  w-full mx-1 text-xl">Add Clear images with Vehicle Number for quick action</div> */}
                 <div className="border-0 px-2 sm:px-3 py-1 rounded w-full sm:w-2/3 lg:w-1/2 mx-48 text-xl sm:text-2xl lg:text-3xl">Photos</div>
-<div className="border-0 sm:px-8 py-1 rounded w-full sm:w-full lg:w-5/6 sm:mx-8 text-lg sm:text-xl lg:text-xl">Add Clear images with Vehicle Number for quick action</div>
+<div className="border-0 sm:px-1 py-1 rounded w-full sm:w-full lg:w-5/6 sm:mx-24 text-lg sm:text-lg lg:text-lg">Add Clear images with Vehicle Number</div>
 
                 {/* {preInput('Photos', 'Add Clear images with Vehicle Number for quick action')} */}
                 </div>
@@ -182,7 +182,7 @@ const ReportForm = () => {
                 {/* <div className="border-0 px-3 py-1 rounded  w-full mx-36 text-2xl">Description</div> */}
                 {/* <div className="border-0 px-5 py-1 rounded  w-full mx-24 text-xl">Describe the severity</div> */}
                 <div className="border-0 px-2 sm:px-3 py-1 rounded w-full sm:w-2/3 lg:w-1/2 mx-44 text-xl sm:text-2xl lg:text-3xl">Description</div>
-<div className="border-0 sm:px-3 py-1 rounded w-full sm:w-full lg:w-5/6 sm:mx-40 text-lg sm:text-xl lg:text-xl">Describe the severity</div>
+<div className="border-0 sm:px-5 py-1 rounded w-full sm:w-full lg:w-5/6 sm:mx-40 text-lg sm:text-lg lg:text-lg">Describe the severity</div>
                 {/* {preInput('Description', 'Describe the severity')} */}
                 <textarea className='' value={description} onChange={e => setDescription(e.target.value)} />
                 </div>
