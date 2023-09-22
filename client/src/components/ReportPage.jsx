@@ -4,7 +4,8 @@ import { Navigate, useParams } from 'react-router-dom'
 import AccountNav from './AccountNav'
 import Perks from './Perks'
 import PhotoUploader from './PhotoUploader'
-
+import backgroundImage from '../assets/bg.png'
+// import Background from '../assets/bg.png'
 const ReportForm = () => {
     const { id } = useParams()
     //const [price , setPrice] = useState(100)
@@ -44,6 +45,7 @@ const ReportForm = () => {
     function preInput(header, description) {
         return (
             <div>
+                
                 <h2 className='text-2xl mt-4'>{header}</h2>
                 <p className='text-sm text-gray-500'>{description}</p>
             </div>
@@ -76,16 +78,68 @@ const ReportForm = () => {
     }
     return (
         <div>
-            {/* <AccountNav /> */}
-            <form onSubmit={savePlace}>
+            <>
+  {/* component */}
+  <section>
+   
+    <div className="bg-black  text-white py-10">
+    {/* <img src={bgP} alt="" className='w-[400px]' /> */}
+      <div className="container mx-auto flex flex-col md:flex-row my-3 md:my-10">
+        <div className="flex flex-col w-full lg:w-1/3 p-8">
+          <p className="ml-6 text-yellow-300 text-lg uppercase tracking-loose">
+            REVIEW
+          </p>
+          <p className="text-3xl md:text-5xl my-8 leading-relaxed md:leading-snug">
+            Leave us a feedback!
+          </p>
+          <p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
+            Please provide your valuable feedback and something something ...
+          </p>
+        </div>
+        <div className="flex flex-col w-full lg:w-5/6 justify-center">
+        
+          <div className="container w-full px-4">
+            <div className="flex flex-wrap justify-center">
+              <div className="w-full lg:w-4/5 px-6">
+                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white">
+                  <div className="flex-auto p-5 lg:p-10 mx-2">
+                  <form onSubmit={savePlace}>
                 {/* {preInput('Title', 'Title for your place . should be short and catchy as in advertisment')}
                 <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder='Title' /> */}
-                {preInput('Location', 'Add location of No-parking')}
+                <div className="border-0 px-3 py-3 rounded text-sm shadow w-full justify-center
+              bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400">
+                 {/* {preInput('Location', 'Add location of No-parking')} */}
+                 <div className="border-0 px-2 sm:px-3 py-1 rounded w-full sm:w-2/3 lg:w-1/2 mx-auto text-xl sm:text-2xl lg:text-3xl">Location</div>
+<div className="border-0 px-2 sm:px-3 py-1 rounded w-full sm:w-2/3 lg:w-1/2 sm:mx-20 text-lg sm:text-xl lg:text-xl">Add location of No-parking</div>
+
+               {/* <div className="border-0 px-3 py-1 rounded  w-full mx-36 text-2xl">Location</div>
+               
+                <div className="border-0 px-3 py-1 rounded  w-full mx-20 text-xl">Add location of No-parking</div> */}
+                
                 <input type="text" value={address} onChange={e => setAddress(e.target.value)} placeholder='Address' />
-                {preInput('Photos', 'Add Clear images with Vehicle Number for quick action')}
+                </div>
+                <div className="border-0 mt-4 px-3 py-3 rounded text-sm shadow w-full
+              bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400">
+                {/* <div className="border-0 px-3 py-1 rounded  w-full mx-36 text-2xl">Photos</div> */}
+                {/* <div className="border-0 px-5 py-1 rounded  w-full mx-1 text-xl">Add Clear images with Vehicle Number for quick action</div> */}
+                <div className="border-0 px-2 sm:px-3 py-1 rounded w-full sm:w-2/3 lg:w-1/2 mx-auto text-xl sm:text-2xl lg:text-3xl">Photos</div>
+<div className="border-0 sm:px-3 py-1 rounded w-full sm:w-full lg:w-5/6 sm:mx-10 text-lg sm:text-xl lg:text-xl">Add Clear images with Vehicle Number for quick action</div>
+
+                {/* {preInput('Photos', 'Add Clear images with Vehicle Number for quick action')} */}
+                </div>
+                <div className="border-0 px-3 rounded text-sm shadow w-full
+              bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400">
                 <PhotoUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
-                {preInput('Description', 'Describe the severity')}
+                </div>
+                <div className="border-0 mt-4 px-3 py-3 rounded text-sm shadow w-full
+              bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400">
+                {/* <div className="border-0 px-3 py-1 rounded  w-full mx-36 text-2xl">Description</div> */}
+                {/* <div className="border-0 px-5 py-1 rounded  w-full mx-24 text-xl">Describe the severity</div> */}
+                <div className="border-0 px-2 sm:px-3 py-1 rounded w-full sm:w-2/3 lg:w-1/2 mx-auto text-xl sm:text-2xl lg:text-3xl">Description</div>
+<div className="border-0 sm:px-3 py-1 rounded w-full sm:w-full lg:w-5/6 sm:mx-28 text-lg sm:text-xl lg:text-xl">Describe the severity</div>
+                {/* {preInput('Description', 'Describe the severity')} */}
                 <textarea className='' value={description} onChange={e => setDescription(e.target.value)} />
+                </div>
                 {/* {preInput('Perks', 'Select perks')} */}
 
                 {/* <Perks selected={perks} onChange={setPerks} />
@@ -115,10 +169,72 @@ const ReportForm = () => {
                             onChange={e => setPrice(e.target.value)} />
                     </div>
                 </div> */}
-                <div >
-                    <button className='primary my-4'>Confirm Report</button>
+                <div className="text-center mt-6">
+                    <button className="bg-yellow-300 text-black text-center mx-auto active:bg-yellow-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1">Confirm Report</button>
                 </div>
             </form>
+                   
+                    {/* <form id="feedbackForm" action="" method="">
+                      <div className="relative w-full mb-3">
+                        <label
+                          className="block uppercase text-gray-700 text-xs font-bold mb-2"
+                          htmlFor="email"
+                        >
+                          Email
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          id="email"
+                          className="border-0 px-3 py-3 rounded text-sm shadow w-full
+              bg-gray-300 placeholder-black text-gray-800 outline-none focus:bg-gray-400"
+                          placeholder=" "
+                          style={{ transition: "all 0.15s ease 0s" }}
+                          required=""
+                        />
+                      </div>
+                      <div className="relative w-full mb-3">
+                        <label
+                          className="block uppercase text-gray-700 text-xs font-bold mb-2"
+                          htmlFor="message"
+                        >
+                          Message
+                        </label>
+                        <textarea
+                          maxLength={300}
+                          name="feedback"
+                          id="feedback"
+                          rows={4}
+                          cols={80}
+                          className="border-0 px-3 py-3 bg-gray-300 placeholder-black text-gray-800 rounded text-sm shadow focus:outline-none w-full"
+                          placeholder=""
+                          required=""
+                          defaultValue={""}
+                        />
+                      </div>
+                      <div className="text-center mt-6">
+                        <button
+                          id="feedbackBtn"
+                          className="bg-yellow-300 text-black text-center mx-auto active:bg-yellow-400 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                          type="submit"
+                          style={{ transition: "all 0.15s ease 0s" }}
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    </form> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</>
+
+            
         </div>
     )
 }
