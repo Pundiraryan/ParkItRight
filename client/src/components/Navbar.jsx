@@ -8,30 +8,63 @@ const Navbar = () => {
     const {user} = useContext(UserContext)
     return (
         <div>
-            <header className='flex flex-col  gap-3 md:flex-row justify-center md:justify-evenly items-center md:gap-3'>
+            <header className='fixed top-0 z-10 bg-gray-100 py-3 flex w-screen flex-row  gap-2 justify-center md:justify-evenly items-center md:gap-3'>
             
                 <Link to='/' className='flex items-center gap-3'>
                     <img src={park} alt="" className='w-[40px]' />
-                    <span className='font-bold text-2xl text-primary'>ParkItRight</span>
+                    <span className='font-bold text-2xl text-black'>ParkItRight</span>
 
                 </Link>
-                <div className='w-2/5 flex justify-right border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-200'>
+                {/* <div className='w-2/5 flex justify-right border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-200'>
                     <div className='justify-center w-2/5'>Search</div>
-                    {/* <div className=' border-l border-gray-300'></div> */}
-                    {/* <div>Any week</div> */}
-                    {/* <div className=' border-l border-gray-300'></div> */}
-                    {/* <div>Guest</div> */}
+                    <div className=' border-l border-gray-300'></div>
+                    <div>Any week</div>
+                    <div className=' border-l border-gray-300'></div>
+                    <div>Guest</div>
                     <button className='bg-primary text-white p-1 rounded-full '><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-65 h-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
                     </button>
+                </div> */}
+                <div className="h-12 flex w-4/6 overflow-hidden rounded-full border border-gray-400 bg-gray-300 shadow-sm hover:shadow-lg md:w-1/2">
+                    <div className="grow">
+                        <input
+                            type="search"
+                            placeholder="Where you want to park?"
+                            className="h-full w-full border-none py-2 px-4 text-sm  focus:outline-none md:text-lg"
+                            // onChange={(e) => handleSearch(e)}
+                            // value={searchText}
+                        />
+                    </div>
+                    <div className="bg-blue flex cursor-pointer  items-center bg-primary text-white">
+                        <button
+                            className="flex rounded-r-full bg-primary py-2 px-4 md:p-2"
+                            // onClick={handleSearch}
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={3}
+                                stroke="currentColor"
+                                className="mt-1 h-4 w-4"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                />
+                            </svg>
+                            <span className="ml-1 hidden md:block">Search</span>
+                        </button>
+                    </div>
                 </div>
                 <Link to='/report' className='flex items-center gap-3'>
                     <img src={report} alt="" className='w-[40px]' />
                     <span className='font-bold text-xl text-primary'>Report</span>
 
                 </Link>
-                <Link to={user?'account':'/login'} className='flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-200'>
+                <Link to={user?'account':'/login'} className='flex items-center gap-2 border border-gray-300 rounded-full py-2 px-4 hover:shadow-md shadow-gray-200'>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
