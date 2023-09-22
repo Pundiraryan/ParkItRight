@@ -104,9 +104,9 @@ const Navbar = () => {
             type="button"
             data-te-ripple-init=""
             data-te-ripple-color="light"
-            className="mr-16 inline-block rounded px-6 pb-2 pt-2.5 border-black text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out  focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none"
+            className="mr-16 inline-block rounded px-6 pb-2 pt-2.5 border-black text-xs font-medium uppercase leading-normal text-black transition duration-150 ease-in-out  focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none"
           >
-            <Link to={user ? 'account' : '/login'} className='flex items-center gap-2 border bg-gray-300 border-gray-300 rounded-full py-2 px-6 hover:shadow-md shadow-gray-200'>
+            <Link to={user ? 'account' : '/login'} className='flex items-center gap-2 border bg-gray-300 border-gray-300 rounded-full py-2 px-3 hover:shadow-md shadow-gray-200'>
                <div>
                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="black" className="w-6 h-6">
                              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />

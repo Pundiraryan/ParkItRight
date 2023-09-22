@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import { UserContext } from '../userContext'
 import Loading from './Loading'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import axios from 'axios'
 import PlacesPage from './PlacesPage'
 import AccountNav from './AccountNav'
@@ -39,7 +39,7 @@ const Account = () => {
 
 
     return (
-        <div>
+        <div className='pt-20'>
             <AccountNav/>           
             {subpage === 'profile' && (
                 <div className='text-center max-w-lg mx-auto'>
