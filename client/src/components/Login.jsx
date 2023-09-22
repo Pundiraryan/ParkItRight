@@ -36,10 +36,10 @@ const Login = () => {
 
 
   return (
-    <div className='mt-4 grow flex items-center justify-around'>
-      <div className='mb-64'>
-        <h1 className='text-4xl text-center mb-4'>Login</h1>
-        <form className='max-w-md mx-auto ' onSubmit={handleLoginUser} >
+    <div className='mt-4 grow flex items-center justify-around h-screen'>
+      <div className='h-3/5 w-3/5 mb-40 border-black-400 md:border text-black shadow-sm px-8 py-12'>
+        <h1 className='text-5xl text-center mb-4'>Login</h1>
+        <form className='max-w-md mx-auto' onSubmit={handleLoginUser} >
           <input
             type="email"
             placeholder="your@email.com"
@@ -52,7 +52,9 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <div className='mt-5'>
           <button className='primary' type='submit'>Login</button>
+          </div>
           <div className='text-center py-2 text-gray-500'>
             Don't have account yet ! <Link to='/register' className='underline text-black font-medium'>Register now</Link>
           </div>

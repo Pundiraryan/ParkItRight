@@ -25,9 +25,12 @@ const Register = () => {
     }
 
     return (
-        <div className="mt-4 grow flex items-center justify-around">
-            <div className="mb-64">
-                <h1 className="text-4xl text-center mb-4">Register</h1>
+        <div className='mt-4 grow flex items-center justify-around h-screen'>
+        <div className='h-4/5 w-3/5 mb-20 border-black-400 md:border text-black shadow-sm px-8 py-12'>
+          {/* <h1 className='text-5xl text-center mb-4'>Login</h1> */}
+        {/* <div className="mt-4 grow flex items-center justify-around"> */}
+            {/* <div className="mb-64"> */}
+                <h1 className="text-5xl text-center mb-4">Register</h1>
                 <form className="max-w-md mx-auto" onSubmit={registerUser}>
                     <input
                         type="text"
@@ -47,8 +50,13 @@ const Register = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                     
+
+                     
+
+                    <div className="mt-6">
                     <button type="submit" className="primary">Register</button>
-                    <div className="text-center py-2 text-gray-500">
+                    <div className="text-center py-3 text-gray-500">
                         Already a member !{" "}
                         <Link
                             to="/login"
@@ -56,6 +64,7 @@ const Register = () => {
                         >
                             Login
                         </Link>
+                    </div>
                     </div>
                 </form>
             </div>
