@@ -12,7 +12,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df=pd.read_csv('C:\\Users\\lenovo\\Documents\\all_docs\\development\\Finalproject\\ParkItRight-Final\\ML_codes\\aqi_detect.csv')
+df=pd.read_csv("C:\\Users\\ASUS\\Documents\\WEB DEVELOPMENT\\PROJECTS\\air\\project\\ML_codes\\aqi_detect.csv")
 
 df.head(20)
 
@@ -52,19 +52,40 @@ color={
     "New York":2
 }
 
-from flask import Flask,jsonify,request
+from flask import Flask,jsonify, make_response,request
+from flask_cors import CORS
 import requests
 
 app=Flask(__name__)
+CORS(app, origins=['http://127.0.0.1:5173'],supports_credentials=True)
+
+CORS(app)
+@app.after_request
+def after_request(response):
+  response.headers.add('Access-Control-Allow-Origin', 'http://127.0.0.1:5173')
+  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+  response.headers.add('Access-Control-Allow-Credentials', 'true')
+  return response
+
+# def _build_cors_preflight_response():
+#     response = make_response()
+#     response.headers.add("Access-Control-Allow-Origin", "*")
+#     response.headers.add("Access-Control-Allow-Headers", "*")
+#     response.headers.add("Access-Control-Allow-Methods", "*")
+#     return response
 
 received_arrays=[]
 
 #@app.route('/api/prd')
 @app.route('/api/prd', methods=['POST'])
 def process_array():
+    
     try:
         # Get the JSON data from the request body
+        #print("hi")
         request_data = request.json
+        
 
         
 
@@ -87,6 +108,7 @@ def process_array():
 # Convert the AQI to an integer
         aqi = int(aqi_part)
         arr=[0,aqi,color_code,price]
+        print(arr)
         # Check if the request data is a list (array)
         if isinstance(arr, list):
             #python_list = request_data.tolist()
@@ -96,6 +118,9 @@ def process_array():
             ans={
                 "ans": result[0]
             }
+            # response.headers.add("Access-Control-Allow-Origin", "*")
+            # response.headers.add("Access-Control-Allow-Headers", "*")
+            # response.headers.add("Access-Control-Allow-Methods", "*")
             return ans
         else:
             return jsonify({'error': 'Input must be a JSON array'}), 400
