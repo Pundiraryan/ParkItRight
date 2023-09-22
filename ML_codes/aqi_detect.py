@@ -85,10 +85,6 @@ def process_array():
         # Get the JSON data from the request body
         #print("hi")
         request_data = request.json
-        
-
-        
-
         base_url = "https://api.waqi.info"
         token = "ee0c40c8c70b6b75820180c6f60d1571c76ee0c5"
 
@@ -118,9 +114,7 @@ def process_array():
             ans={
                 "ans": result[0]
             }
-            # response.headers.add("Access-Control-Allow-Origin", "*")
-            # response.headers.add("Access-Control-Allow-Headers", "*")
-            # response.headers.add("Access-Control-Allow-Methods", "*")
+       
             return ans
         else:
             return jsonify({'error': 'Input must be a JSON array'}), 400

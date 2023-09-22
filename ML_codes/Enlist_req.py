@@ -56,7 +56,7 @@ def process_request():
 
         # Return the result as JSON response
         if(result[0]==1):
-            return jsonify({"message": "Accepted"})
+            return jsonify({"message":"Accepted"})
         else:
             return jsonify({"message":"Rejected"})
 
@@ -64,7 +64,7 @@ def process_request():
         return jsonify({"error": str(e)}), 500
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=8080)
 
 
 # accuracy = accuracy_score(y_test, y_pred)

@@ -34,6 +34,7 @@ export const PlaceCard = ({place,index}) => {
         .then((response) => {
           // Handle the response from the backend if needed
           setResult(response.data.ans);
+          
           console.log(response.data);
           console.log(result);
         })
