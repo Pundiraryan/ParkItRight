@@ -48,7 +48,7 @@ export const PlaceCard = ({place,index}) => {
     // };
   return (
     <>
-    <button onClick={calculatePrice}>Calculate Price</button>
+    {/* <button onClick={calculatePrice}>Calculate Price</button> */}
     <Link to={"/places/" + place._id} key={index}>
         <div className='bg-gray-200 mb-4 rounded-2xl flex '>
           {place.photos?.[0] && (
@@ -58,7 +58,7 @@ export const PlaceCard = ({place,index}) => {
         <h2 className="font-bold">{place.address}</h2>
         <h3 className='text-sm truncate text-gray-500'>{place.title}</h3>
         <div className='mt-1'>
-          <span className='font-bold'>₹${result}</span> per day
+          <span className='font-bold'>₹{place.price}</span> per day
         </div>
 
     </Link></>
