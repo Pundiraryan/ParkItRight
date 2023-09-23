@@ -61,7 +61,7 @@ def process_request():
         cctv = request_data.get('cctv')
         carwash = request_data.get('carwash')
         area = request_data.get('area')
-
+        
         result=nb_classifier.predict([[cost,security,cctv,carwash,area]])
          
 

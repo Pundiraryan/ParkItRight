@@ -14,7 +14,7 @@ const Perks = ({selected  , onChange }) => {
   }
 
   return (
-    <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 mt-2'>
+    <div className='grid grid-cols-2 gap-2 mt-2'>
        <label className ="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
                                 <input type="checkbox" checked={selected.includes('wifi')} name='wifi'  onChange={handleCbClick} />
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
