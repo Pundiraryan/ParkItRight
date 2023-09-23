@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 
 
-df=pd.read_csv("C:\\Users\\lenovo\\Documents\\all_docs\\development\\Finalproject\\ParkItRight-Final\\ML_codes\\enlist_dataset.csv")
+df=pd.read_csv("C:\\Users\\ASUS\\Documents\\WEB DEVELOPMENT\\PROJECTS\\air\\project\\ML_codes\\enlist_dataset.csv")
 df.head(4)
 
 
@@ -32,8 +32,22 @@ print(y_test)
 print(nb_classifier.predict(x_test))
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+import requests
 
 app = Flask(__name__)
+
+CORS(app, origins=['http://127.0.0.1:5173'],supports_credentials=True)
+
+CORS(app)
+@app.after_request
+def after_request(response):
+  response.headers.add('Access-Control-Allow-Origin', 'http://127.0.0.1:5173')
+  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+  response.headers.add('Access-Control-Allow-Credentials', 'true')
+  return response
+
 
 @app.route('/process-request', methods=['POST'])
 def process_request():
@@ -47,7 +61,7 @@ def process_request():
         cctv = request_data.get('cctv')
         carwash = request_data.get('carwash')
         area = request_data.get('area')
-
+        
         result=nb_classifier.predict([[cost,security,cctv,carwash,area]])
          
 

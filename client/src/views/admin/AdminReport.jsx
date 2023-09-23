@@ -1,7 +1,6 @@
-// import React from "react";
-import React,{ useState } from "react";
-import axios from "axios";
-const ProfileOverview = () => {
+import React,{useState} from 'react'
+import axios from 'axios';
+const AdminReport = () => {
   const [cruds, setCruds] = useState([]);
   const bringdata=async()=>{
     try {
@@ -71,15 +70,6 @@ const ProfileOverview = () => {
     // </div>
     
   );
-};
+}
 
-export default ProfileOverview;
-// const ProfileOverview = () => {
-//   return (
-//     <div>
-//       i am here
-//     </div>
-//   );
-// };
-
-// export default ProfileOverview;
+export default AdminReport

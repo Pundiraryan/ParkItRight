@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
 import jwt_decode from 'jwt-decode';
 
-import { UserContext } from '@/providers/UserProvider';
-import { PlaceContext } from '@/providers/PlaceProvider';
+import { UserContext } from '../src/providers/UserProvider';
+import { PlaceContext } from '../src/providers/PlaceProvider';
 
-import { getItemFromLocalStorage, setItemsInLocalStorage, removeItemFromLocalStorage } from '@/utils';
-import axiosInstance from '@/utils/axios';
+import { getItemFromLocalStorage, setItemsInLocalStorage, removeItemFromLocalStorage } from '../src/utils';
+import axiosInstance from '../src/utils/axios';
 
 // USER
 export const useAuth = () => {

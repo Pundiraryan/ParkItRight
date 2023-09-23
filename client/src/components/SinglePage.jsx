@@ -61,9 +61,9 @@ const SinglePage = () => {
                         <h2 className='font-semibold text-2xl'>Description</h2>
                         {place.description}
                     </div>
-                    <b>Check In : </b> {place.checkIn} <br />
-                    <b>Check Out : </b> {place.checkOut} <br />
-                    <b>Max Guests : </b> {place.maxGuests}
+                    <b>Park In : </b> {place.checkIn} <br />
+                    <b>Park Out : </b> {place.checkOut} <br />
+                    <b>Max Spots : </b> {place.maxGuests}
 
 
                 </div>

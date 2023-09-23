@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 
-import axiosInstance from '@/utils/axios';
+import axiosInstance from '../utils/axios';
 import { usePlaces } from '../../hooks';
-import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 
 const SearchBar = () => {
