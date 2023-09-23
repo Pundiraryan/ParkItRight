@@ -9,13 +9,12 @@ const Navbar = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <nav className="bg-white py-3 shadow-lg hover:shadow-md relative">
+    <nav className="bg-white py-3 shadow-lg hover:shadow-md fixed top-0 left-0 right-0 z-10">
       <div className="container mx-auto flex justify-between items-center px-4">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 ml-8 cursor-pointer">
           <img src={park} alt="" className="w-10" />
           <span className="font-bold text-xl text-black">ParkItRight</span>
         </Link>
-
         <button
           className="block lg:hidden"
           type="button"

@@ -16,6 +16,8 @@ import SingleBooking from './components/SingleBooking'
 import ReportPage from './components/ReportPage'
 import AdminLayout from "./layouts/admin";
 import TestComponent from './components/TestComponent';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL ;
 axios.defaults.withCredentials = true;
 
@@ -23,6 +25,7 @@ function App() {
 
   return (
     <UserContextProvider>
+        <ToastContainer />
     <Routes>
         {/* <Route path='/admin/enlist_request' element={<Profile/>}/> */}
         <Route path="admin/*" element={<AdminLayout />} />
