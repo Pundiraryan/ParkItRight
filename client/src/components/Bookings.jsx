@@ -7,6 +7,7 @@ import format from 'date-fns/format'
 import { differenceInCalendarDays } from 'date-fns'
 import { Link } from 'react-router-dom'
 import BookingDates from './BookingDates'
+import park from '../assets/parking1.jpeg';
 
 const Bookings = () => {
 
@@ -32,7 +33,8 @@ const Bookings = () => {
                     bookings?.length > 0 && bookings.map((booking, index) => (
                         <Link key={index} to={`/account/booking/${booking._id}`} className='flex gap-4 bg-gray-200 rounded-2xl overflow-hidden my-3'>
                             <div className='md:w-64 h-full'>
-                                <PlaceImg place={booking.place} />
+                                {/* <PlaceImg place={booking.place} /> */}
+                                <img src={park}/>
                             </div>
                             <div className='py-4 px-2 grow'>
                                 <h2 className='text-xl'>{booking.place.title}</h2>

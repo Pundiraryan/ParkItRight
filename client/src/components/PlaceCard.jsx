@@ -1,4 +1,9 @@
-import React from 'react'
+import axios from 'axios'
+import { React, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Loading from './Loading'
+import park from '../assets/parking1.jpeg';
+
 
 
 export const PlaceCard = ({place,index}) => {
@@ -26,7 +31,10 @@ export const PlaceCard = ({place,index}) => {
       axios.post('http://127.0.0.1:8080/api/prd', dataToSend)
         .then((response) => {
           // Handle the response from the backend if needed
-          setResult(response.data.price);
+          //setResult(response.data.price);
+          setResult(response.data.ans);
+          console.log(response.data);
+          console.log(result);
         })
         .catch((error) => {
           // Handle any errors if the request fails
@@ -48,17 +56,17 @@ export const PlaceCard = ({place,index}) => {
     // };
   return (
     <>
-    <button onClick={calculatePrice}>Calculate Price</button>
+    {/* <button onClick={calculatePrice}>Calculate Price</button> */}
     <Link to={"/places/" + place._id} key={index}>
         <div className='bg-gray-200 mb-4 rounded-2xl flex '>
-          {place.photos?.[0] && (
-            <img className="rounded-2xl object-cover aspect-square" src={place.photos[0]} alt="" />
-          )}
+          
+            <img className="rounded-2xl object-cover aspect-square" src={park} alt="" />
+          
         </div>
         <h2 className="font-bold">{place.address}</h2>
         <h3 className='text-sm truncate text-gray-500'>{place.title}</h3>
         <div className='mt-1'>
-          <span className='font-bold'>₹${result}</span> per day
+          <span className='font-bold'>₹{place.price}</span> per day
         </div>
 
     </Link></>

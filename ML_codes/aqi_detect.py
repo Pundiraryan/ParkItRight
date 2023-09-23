@@ -49,7 +49,9 @@ print(regr.predict([[2,250,0,1]]))
 color={
     "delhi":2,
     "mumbai":1,
-    "New York":2
+    "New York":2,
+    "meerut":2,
+    "bangalore":3
 }
 
 from flask import Flask,jsonify, make_response,request

@@ -113,8 +113,11 @@ app.post("/api/login", async (req, res) => {
                 process.env.SECRET_KEY,
                 {},
                 (err, token) => {
-                    if (err) throw err;
-                    res.cookie("token", token).json(userDoc);
+                    if (err){
+                        res.status(500).json({ error: "Failed to generate token" });
+                    }else {
+                        res.cookie("token", token).json(userDoc);
+                    }
                 }
             );
         } else {
@@ -141,7 +144,7 @@ app.get("/api/profile", (req, res) => {
 
 //Logout
 app.post("/api/logout", (req, res) => {
-    res.cookie("token", "").json(true);
+    res.clearCookie("token").json(true);
 });
 
 // Upload photo from device
@@ -155,10 +158,11 @@ app.post("/api/upload-by-link", async (req, res) => {
         // cloudinary.uploader.upload()
         console.log('here----');
         
-        const result = await cloudinary.uploader.upload(link , {
-            folder : "upload" , 
-            allowed_formats : ["jpg" , "jpeg" , "png" , "gif"]
-        })
+        // const result = await cloudinary.uploader.upload(link , {
+        //     folder : "upload" , 
+        //     allowed_formats : ["jpg" , "jpeg" , "png" , "gif"]
+        // })
+        const result = await cloudinary.uploader.upload(link)
         console.log('heeere---');
         console.log(result);
         res.json(result.secure_url)
