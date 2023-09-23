@@ -2,10 +2,11 @@ import axios from 'axios'
 import React, { useState } from 'react'
 
 const PhotoUploaderd = ({ addedPhotos, onChange }) => {
-    const [photoLink, setPhotoLink] = useState("")
+    const [photoLink, setPhotoLink] = useState('')
 
     function uploadPhoto(e) {
         const files = e.target.files
+        console.log(files);
         const data = new FormData();
         // console.log('here');
         for (let index = 0; index < files.length; index++) {
