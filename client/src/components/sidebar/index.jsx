@@ -28,7 +28,6 @@ const Sidebar = ({ open, onClose }) => {
         <Link to='/' className='flex items-center gap-2'>
                    <img src={park} alt="" className='w-[40px]' />
                    <span className='font-bold text-2xl text-black'>ParkItRight</span>
-
         </Link>
         </div>
       </div>

@@ -34,7 +34,7 @@ const Register = () => {
             <div className='w-full max-w-md border-black-400 rounded-3xl md:border text-black hover:shadow-xl shadow-sm px-8 py-8 bg-white'>
                 <h1 className="text-5xl text-center mb-4">Register</h1>
                 <form onSubmit={registerUser}>
-                    <div className="flex flex-col mb-4"> {/* Added this flex container */}
+                    <div className="flex flex-col mb-4">
                         <input
                             type="text"
                             placeholder="Name"
@@ -57,7 +57,7 @@ const Register = () => {
                             className="w-full px-3 py-2 border rounded mt-2 focus:outline-none focus:border-primary"
                         />
                     </div>
-                    <div className="flex justify-center"> {/* Centered flex container */}
+                    <div className="flex justify-center">
                         <button
                             type="submit"
                             className="bg-primary text-white py-2 px-4 rounded hover:bg-opacity-80 focus:outline-none focus:ring focus:ring-primary w-full"
