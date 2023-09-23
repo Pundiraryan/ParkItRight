@@ -4,7 +4,8 @@ import React from "react";
 import MainDashboard from "./views/admin/default";
 // import NFTMarketplace from "views/admin/marketplace";
 import Profile from "./views/admin/profile";
-// import DataTables from "views/admin/tables";
+import AdminReport from './views/admin/AdminReport';
+// import DataTables from "./views/admin/tables";
 // import RTLDefault from "views/rtl/default";
 // Auth Imports
 // import SignIn from "views/auth/SignIn";
@@ -12,8 +13,6 @@ import Profile from "./views/admin/profile";
 // Icon Imports
 import {
   MdHome,
-  MdOutlineShoppingCart,
-  MdBarChart,
   MdPerson,
   MdLock,
 } from "react-icons/md";
@@ -50,10 +49,10 @@ const routes = [
   },
   {
     name: "Report request",
-    layout: "/auth",
-    path: "report_request",
-    icon: <MdLock className="h-6 w-6" />
-    // component: <SignIn />,
+    layout: "/admin",
+    path: "report",
+    icon: <MdLock className="h-6 w-6" />,
+    component: <AdminReport />
   }
 ];
 export default routes;

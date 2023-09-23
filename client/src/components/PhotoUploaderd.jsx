@@ -1,11 +1,12 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-const PhotoUploader = ({ addedPhotos, onChange }) => {
-    const [photoLink, setPhotoLink] = useState("")
+const PhotoUploaderd = ({ addedPhotos, onChange }) => {
+    const [photoLink, setPhotoLink] = useState('')
 
     function uploadPhoto(e) {
         const files = e.target.files
+        console.log(files);
         const data = new FormData();
         // console.log('here');
         for (let index = 0; index < files.length; index++) {
@@ -18,6 +19,7 @@ const PhotoUploader = ({ addedPhotos, onChange }) => {
             onChange(prev => {
                 return [...prev, ...filenames];
             })
+
         })
     }
 
@@ -44,11 +46,12 @@ const PhotoUploader = ({ addedPhotos, onChange }) => {
 
     return (
         <>
-            <div className='flex gap-2  '>
-                <input type="text" value={photoLink} onChange={e => setPhotoLink(e.target.value)} placeholder='Add using link /.jpg' />
-                <button className='bg-gray-200 px-4 rounded-2xl text-sm hover:text-white hover:bg-primary h-4/5 mt-4' onClick={addPhotoByLink}>Add Photo</button>
-            </div>
-            <div className='grid grid-cols-3 gap-2 md:grid-cols-4 lg:grid-cols-6 mt-2'>
+            <div className='flex gap-2'>
+                <div className='flex h-3/5'>
+                <input type="text" className='flex' value={photoLink} onChange={e => setPhotoLink(e.target.value)} placeholder='Add using link /.jpg' />
+                </div>
+                <button className='bg-gray-200 px-4 mx-5 w-16 rounded-2xl text-sm h-3/5 mt-2 text-black hover:bg-primary hover:text-white' onClick={addPhotoByLink}>Add Photo</button>
+            <div className='grid gap-2 grid-cols-4 mt-2'>
                 {addedPhotos.length > 0 && addedPhotos.map((link, index) => (
                     <div key={index} className='h-44 flex relative '>
                         <img className="rounded-xl w-full object-cover position-center" src={link} alt="" />
@@ -66,7 +69,7 @@ const PhotoUploader = ({ addedPhotos, onChange }) => {
                     </div>
                 ))}
                 {/* <label className='h-24 w-36 mx-36 mb-4 cursor-pointer flex items-center gap-3 justify-center  border  bg-gray-20 rounded-2xl p-2 text-l text-gray-600'> */}
-                <label class="h-24 w-full sm:w-36 px-5 hover:bg-primary hover:text-white sm:mx-48 mb-4 cursor-pointer flex items-center gap-2 sm:gap-3 justify-center border bg-gray-200 rounded-2xl p-2 text-base sm:text-lg text-black">
+                <label class="h-3/5 sm:w-36 sm:mx-6 mb-2 cursor-pointer flex items-center gap-2 sm:gap-3 border bg-gray-200 rounded-2xl p-5 text-md sm:text-md text-gray-600 hover:bg-primary hover:text-white">
 
 
                     <input type={'file'} multiple className='hidden' onChange={uploadPhoto} />
@@ -75,10 +78,11 @@ const PhotoUploader = ({ addedPhotos, onChange }) => {
                     </svg>
                     Upload Photo</label>
             </div>
+            </div>
         </>
 
 
     )
 }
 
-export default PhotoUploader
+export default PhotoUploaderd

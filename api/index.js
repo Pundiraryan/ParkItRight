@@ -20,6 +20,7 @@ cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
+    secure:true
 });
 
 const storage = new CloudinaryStorage({
@@ -143,6 +144,8 @@ app.post("/api/logout", (req, res) => {
     res.cookie("token", "").json(true);
 });
 
+// Upload photo from device
+const photosMiddleware = multer({ storage: storage }).array("photos" , 100);
 //Photo Upload by link
 app.post("/api/upload-by-link", async (req, res) => {
     const { link } = req.body;
@@ -150,13 +153,16 @@ app.post("/api/upload-by-link", async (req, res) => {
     console.log(link);
     try{
         // cloudinary.uploader.upload()
+        console.log('here----');
         const result = await cloudinary.uploader.upload(link , {
             folder : "upload" , 
             allowed_formats : ["jpg" , "jpeg" , "png" , "gif"]
         })
+        console.log('heeere---');
         console.log(result);
         res.json(result.secure_url)
     }catch(error){
+        console.log(error);
         res.status(500).json({ error: "Failed to upload image to Cloudinary" });
     }
 });
@@ -170,14 +176,13 @@ app.post("/api/upload-by-link", async (req, res) => {
 //     res.json(newName);
 // });
 
-// Upload photo from device
-const photosMiddleware = multer({ storage: storage }).array("photos" , 100);
 app.post("/api/upload", photosMiddleware, (req, res) => {
     const uploadedFiles = [];
     for (let index = 0; index < req.files.length; index++) {
         uploadedFiles.push(req.files[index].path);
     }
     res.json(uploadedFiles);
+    console.log(uploadedFiles);
 });
 
 // const photosMiddleware = multer({ dest: "uploads/" });
@@ -345,7 +350,6 @@ app.get('/report/view',async(req,res)=>{
     try {
         const report = await Report.find({Active_:true});
         res.status(200).json({
-          message:"sucess",
           report
         });
       } catch (err) {

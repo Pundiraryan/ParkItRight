@@ -23,50 +23,56 @@ const Register = () => {
         toast.error("Registration Failed ! Try again later ")
         
       }
-      
-
     }
+
     if (redirect) {
         return <Navigate to="/" />;
-      }
+    }
 
     return (
-        <div className='mt-10 grow flex items-center justify-around h-screen bg-sky-800 py-20'>
-        <div className='h-4/5 w-2/5 border-black-400 rounded-3xl  md:border text-black hover:shadow-xl shadow-sm px-8 py-8 bg-white'>
-          {/* <h1 className='text-5xl text-center mb-4'>Login</h1> */}
-        {/* <div className="mt-4 grow flex items-center justify-around"> */}
-            {/* <div className="mb-64"> */}
+        <div className='mt-10 flex items-center justify-center h-screen bg-primary py-20'>
+            <div className='w-full max-w-md border-black-400 rounded-3xl md:border text-black hover:shadow-xl shadow-sm px-8 py-8 bg-white'>
                 <h1 className="text-5xl text-center mb-4">Register</h1>
-                <form className="max-w-md mx-auto" onSubmit={registerUser}>
-                    <input
-                        type="text"
-                        placeholder="Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <input
-                        type="email"
-                        placeholder="your@email.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <div className="mt-3">
-                    <button type="submit" className="primary">Register</button>
+                <form onSubmit={registerUser}>
+                    <div className="flex flex-col mb-4"> {/* Added this flex container */}
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="w-full px-3 py-2 border rounded focus:outline-none focus:border-primary"
+                        />
+                        <input
+                            type="email"
+                            placeholder="Your Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="w-full px-3 py-2 border rounded mt-2 focus:outline-none focus:border-primary"
+                        />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="w-full px-3 py-2 border rounded mt-2 focus:outline-none focus:border-primary"
+                        />
+                    </div>
+                    <div className="flex justify-center"> {/* Centered flex container */}
+                        <button
+                            type="submit"
+                            className="bg-primary text-white py-2 px-4 rounded hover:bg-opacity-80 focus:outline-none focus:ring focus:ring-primary w-full"
+                        >
+                            Register
+                        </button>
+                    </div>
                     <div className="text-center py-3 text-gray-500">
-                        Already a member !{" "}
+                        Already a member!{" "}
                         <Link
                             to="/login"
                             className="underline text-black font-medium"
                         >
                             Login
                         </Link>
-                    </div>
                     </div>
                 </form>
             </div>
