@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import AddressLink from './AddressLink'
 import BookingWidget from './BookingWidget'
 import PlaceGallery from './PlaceGallery'
+import park from '../assets/parking1.jpeg';
 
 const SinglePage = () => {
     const { id } = useParams()
@@ -21,8 +22,9 @@ const SinglePage = () => {
 
     if (!place) return ''
 
-    if (showAllPhotos) {
+   // if (showAllPhotos) {
         return (
+            <>
             <div className='absolute inset-0 min-w-full min-h-screen'>
                 <div className='p-8 grid gap-4 bg-black items-center justify-items-center '>
 
@@ -35,19 +37,19 @@ const SinglePage = () => {
                         </button>
 
                     </div>
-                    {place?.photos?.length > 0 && place.photos.map((photo, index) => (
-                        <div key={index}>
-                            <img src={'http://localhost:4000/uploads/' + photo} alt="" />
-
+                    {/* place?.photos?.length > 0 && place.photos.map((photo, index) => ( */}
+                        <div>
+                            {/* <img src={'http://localhost:4000/uploads/' + photo} alt="" /> */}
+                            <img src={park}/>
                         </div>
 
-                    ))}
+                    
 
                 </div>
-            </div>)
-    }
+            </div>
+    {/* } */}
 
-    return (
+    {/* return ( */}
         <div className='mt-8 bg-gray-100 -mx-8 px-8 pt-6'>
             <h1 className='text-3xl'>{place.title}</h1>
             <AddressLink>
@@ -82,6 +84,7 @@ const SinglePage = () => {
 
             </div>
         </div>
+        </>
     )
 }
 

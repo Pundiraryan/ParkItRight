@@ -2,6 +2,7 @@ import axios from 'axios'
 import { React, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Loading from './Loading'
+import park from '../assets/parking1.jpeg';
 
 
 
@@ -58,9 +59,9 @@ export const PlaceCard = ({place,index}) => {
     {/* <button onClick={calculatePrice}>Calculate Price</button> */}
     <Link to={"/places/" + place._id} key={index}>
         <div className='bg-gray-200 mb-4 rounded-2xl flex '>
-          {place.photos?.[0] && (
-            <img className="rounded-2xl object-cover aspect-square" src={place.photos[0]} alt="" />
-          )}
+          
+            <img className="rounded-2xl object-cover aspect-square" src={park} alt="" />
+          
         </div>
         <h2 className="font-bold">{place.address}</h2>
         <h3 className='text-sm truncate text-gray-500'>{place.title}</h3>
