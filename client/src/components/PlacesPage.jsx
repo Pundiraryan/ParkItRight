@@ -4,6 +4,7 @@ import AccountNav from './AccountNav';
 import axios from 'axios';
 import PlaceImg from './PlaceImg';
 import Loading from './Loading';
+import park from '../assets/parking1.jpeg';
 
 
 
@@ -33,9 +34,10 @@ const PlacesPage = () => {
             </div>
             <div className='my-4 '>
                 {places.length > 0 && places.map((place, index) => (
-                    <Link key={index} to={"/account/places/" + place._id} className='flex cursor-pointer bg-gray-100 gap-4 p-4 rounded-2xl my-2'>
-                        <div className='flex h-32 w-32 bg-gray-300 grow shrink-0 rounded-full'>
-                            <PlaceImg place={place} />
+                    <Link key={index} to={"/account/places/" + place._id} className='flex bg-gray-100 gap-4 p-4 rounded-2xl my-2'>
+                        <div className='flex h-32 w-32 bg-gray-300 shrink-0 rounded'>
+                            {/* <PlaceImg place={place} /> */}
+                            <img src={park}/>
                         </div>
                         <div className='grow-0 shrink'>
                             <h2 className='text-xl'>{place.title}</h2>
