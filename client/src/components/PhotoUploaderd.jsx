@@ -2,24 +2,40 @@ import axios from 'axios'
 import React, { useState } from 'react'
 
 const PhotoUploaderd = ({ addedPhotos, onChange }) => {
-    const [photoLink, setPhotoLink] = useState("")
+    const [photoLink, setPhotoLink] = useState('')
 
     function uploadPhoto(e) {
-        const files = e.target.files
-        const data = new FormData();
+        // const files = e.target.files
+        // console.log(files);
+        // const data = new FormData();
         // console.log('here');
-        for (let index = 0; index < files.length; index++) {
-            data.append('photos', files[index])
-        }
-        axios.post('/upload', data, {
-            headers: { 'Content-type': 'multipart/form-data' }
-        }).then(response => {
-            const { data: filenames } = response
-            onChange(prev => {
-                return [...prev, ...filenames];
-            })
+        // for (let index = 0; index < files.length; index++) {
+        //     data.append('photos', files[index])
+        // }
+        // axios.post('/upload', data, {
+        //     headers: { 'Content-type': 'multipart/form-data' }
+        // }).then(response => {
+        //     const { data: filenames } = response
+        //     onChange(prev => {
+        //         return [...prev, ...filenames];
+        //     })
 
-        })
+        // })
+        const data = new FormData();
+    data.append('file', event.target.files[0]);
+
+    axios.post('/upload', data)
+      .then((res) => {
+        this.setState({ photos: [res.data, ...this.state.photos] });
+      });
+        // const data = new FormData();
+        // data.append("file", e.target.value);
+        // data.append("upload_preset", "myapp");
+        // data.append("cloud_name", "deviabumd");
+        // axios.post("https://api.cloudinary.com/v1_1/deviabumd/image/upload", {
+        //   body: data,
+        // })
+  
     }
 
     async function addPhotoByLink(e) {
@@ -68,14 +84,19 @@ const PhotoUploaderd = ({ addedPhotos, onChange }) => {
                     </div>
                 ))}
                 {/* <label className='h-24 w-36 mx-36 mb-4 cursor-pointer flex items-center gap-3 justify-center  border  bg-gray-20 rounded-2xl p-2 text-l text-gray-600'> */}
-                <label class="h-3/5 sm:w-36 sm:mx-6 mb-2 cursor-pointer flex items-center gap-2 sm:gap-3 border bg-gray-200 rounded-2xl p-5 text-md sm:text-md text-gray-600 hover:bg-primary hover:text-white">
+                {/* <label class="h-3/5 sm:w-36 sm:mx-6 mb-2 cursor-pointer flex items-center gap-2 sm:gap-3 border bg-gray-200 rounded-2xl p-5 text-md sm:text-md text-gray-600 hover:bg-primary hover:text-white">
 
 
                     <input type={'file'} multiple className='hidden' onChange={uploadPhoto} />
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                     </svg>
-                    Upload Photo</label>
+                    Upload Photo</label> */}
+                <div className='flex h-3/5'>
+                <input type="text" className='flex' value={photoLink} onChange={e => setPhotoLink(e.target.value)} placeholder='Add using link /.jpg' />
+                </div>
+                <button className='bg-gray-200 px-4 mx-5 w-16 rounded-2xl text-sm h-3/5 mt-2 text-black hover:bg-primary hover:text-white' onClick={addPhotoByLink}>Add Photo</button>
+                    
             </div>
             </div>
         </>
