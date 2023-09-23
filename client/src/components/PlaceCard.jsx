@@ -57,8 +57,8 @@ export const PlaceCard = ({place,index}) => {
   return (
     <>
     {/* <button onClick={calculatePrice}>Calculate Price</button> */}
-    <Link to={"/places/" + place._id} key={index}>
-        <div className='bg-gray-200 mb-4 rounded-2xl flex '>
+    <Link to={"/places/" + place._id} key={index} className='p-3'>
+        <div className='bg-gray-200 mb-4 rounded-2xl flex p-3 '>
             <img className="rounded-2xl object-cover aspect-square" src={park} alt="" />
         </div>
         <h2 className="font-bold">{place.address}</h2>

@@ -74,7 +74,7 @@ const SinglePage = () => {
                 </div>
 
             </div>
-            <div className='bg-white -mx-8 px-8 py-4 mt-4 border-t'>
+            {/* <div className='bg-white -mx-8 px-8 py-4 mt-4 border-t'>
                 <div>
                     <h2 className='font-semibold text-2xl'>Extra Info</h2>
                 </div>
@@ -82,7 +82,7 @@ const SinglePage = () => {
                     {place.extraInfo}
                 </div>
 
-            </div>
+            </div> */}
         </div>
        // </>
     )
