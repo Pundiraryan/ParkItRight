@@ -23,6 +23,7 @@
     "apexcharts": "^3.42.0",
     "axios": "^1.5.0",
     "bcrypt": "^5.1.0",
+    "cloudinary-core": "^2.13.0",
     "cookieparser": "^0.1.0",
     "date-fns": "^2.29.3",
     "framer-motion": "^10.16.4",
