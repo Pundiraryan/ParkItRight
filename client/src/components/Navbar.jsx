@@ -4,6 +4,8 @@ import { UserContext } from '../userContext'
 // import globe from '../assets/world-globe.png'
 import park from '../assets/parking.png'
 import report from '../assets/air-horn.png'
+import SearchBar from './SearchBar';
+
 const Navbar = () => {
     const { user } = useContext(UserContext)
     return (
@@ -66,14 +68,14 @@ const Navbar = () => {
           {/* Home link */}
          
         </ul>
-        <div className="h-12 flex w-4/6 overflow-hidden rounded-full border border-gray-400 bg-gray-300 shadow-sm hover:shadow-lg md:w-1/2">
+        {/* <div className="h-12 flex w-4/6 overflow-hidden rounded-full border border-gray-400 bg-gray-300 shadow-sm hover:shadow-lg md:w-1/2">
                      <div className="grow">
                          <input
                              type="search"
                              placeholder="Where you want to park?"
                              className="h-full w-full border-none py-2 px-4 text-sm  focus:outline-none md:text-lg"
-                         // onChange={(e) => handleSearch(e)}
-                         // value={searchText}
+                        //  onChange={(e) => handleSearch(e)}
+                        //  value={searchText}
                          />
                      </div>
                      <div className="bg-blue flex cursor-pointer  items-center bg-primary text-white">
@@ -98,8 +100,9 @@ const Navbar = () => {
                              <span className="ml-1 hidden md:block">Search</span>
                          </button>
                      </div>
-                 </div>
+                 </div> */}
         <div className="flex items-center">
+        {<SearchBar />}
           <button
             type="button"
             data-te-ripple-init=""

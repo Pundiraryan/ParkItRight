@@ -112,8 +112,11 @@ app.post("/api/login", async (req, res) => {
                 process.env.SECRET_KEY,
                 {},
                 (err, token) => {
-                    if (err) throw err;
-                    res.cookie("token", token).json(userDoc);
+                    if (err){
+                        res.status(500).json({ error: "Failed to generate token" });
+                    }else {
+                        res.cookie("token", token).json(userDoc);
+                    }
                 }
             );
         } else {
@@ -140,7 +143,7 @@ app.get("/api/profile", (req, res) => {
 
 //Logout
 app.post("/api/logout", (req, res) => {
-    res.cookie("token", "").json(true);
+    res.clearCookie("token").json(true);
 });
 
 //Photo Upload by link

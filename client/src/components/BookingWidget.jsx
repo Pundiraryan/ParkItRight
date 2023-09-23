@@ -46,21 +46,21 @@ const BookingWidget = ({ place }) => {
 
         <div className='bg-white shadow p-4 rounded-2xl mt-4'>
             <div className="text-2xl text-center my-4">
-                Price : ₹{place.price} /per night
+                Price : ₹{place.price} /per hour
             </div>
             <div className='border rounded-2xl mt-4'>
                 <div className="flex justify-between align-middle">
                     <div className='py-4 px-4 border-r w-1/2'>
-                        <label>Check In : </label>
+                        <label>Park In : </label>
                         <input type="date" value={checkIn} onChange={e => setCheckIn(e.target.value)} />
                     </div>
                     <div className='py-4 px-4 '>
-                        <label>Check Out : </label>
+                        <label>Park Out : </label>
                         <input type="date" value={checkOut} onChange={e => setCheckOut(e.target.value)} />
                     </div>
                 </div>
                 <div className='py-2 px-4 border-t'>
-                    <label>Number of guests : </label>
+                    <label>Number of spot going to use : </label>
                     <input type="number" value={guests} onChange={e => setGuests(e.target.value)} />
                 </div>
                 {numberOfNights > 0 && (
