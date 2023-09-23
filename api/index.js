@@ -154,6 +154,7 @@ app.post("/api/upload-by-link", async (req, res) => {
     try{
         // cloudinary.uploader.upload()
         console.log('here----');
+        
         const result = await cloudinary.uploader.upload(link , {
             folder : "upload" , 
             allowed_formats : ["jpg" , "jpeg" , "png" , "gif"]
@@ -182,6 +183,7 @@ app.post("/api/upload", photosMiddleware, (req, res) => {
         uploadedFiles.push(req.files[index].path);
     }
     res.json(uploadedFiles);
+    console.log('beforeuploading');
     console.log(uploadedFiles);
 });
 

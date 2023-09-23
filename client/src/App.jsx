@@ -15,7 +15,7 @@ import Bookings from './components/Bookings'
 import SingleBooking from './components/SingleBooking'
 import ReportPage from './components/ReportPage'
 import AdminLayout from "./layouts/admin";
-
+import TestComponent from './components/TestComponent';
 axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL ;
 axios.defaults.withCredentials = true;
 
@@ -39,6 +39,7 @@ function App() {
         <Route path="/account/places/new" element={<PlacesForm />} />
         <Route path="/account/places/:id" element={<PlacesForm />} />
         <Route path="/places/:id" element={<SinglePage />} />
+        <Route path="/test" element={<TestComponent/>}/>
       {/* <Route path="/" element={<Navigate to="/admin" replace />} /> */}
         {/* <Route path="/report" element={<Report />} /> */}
       </Route>
