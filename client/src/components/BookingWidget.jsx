@@ -37,6 +37,32 @@ const BookingWidget = ({ place }) => {
         setRedirect(`/account/booking/${bookingId}`)
     }
 
+    //added
+    const [price, setPrice] = useState(0);
+    const [city, setCity] = useState('');
+  
+    const calculatePrice = () => {
+      // Create a JSON object with "price" and "city" variables
+      const dataToSend = {
+        price: place.price,
+        city: place.title,
+      };
+  
+      // Make a POST request to the backend API
+      axios.post('http://127.0.0.1:8080/api/prd', dataToSend)
+        .then((response) => {
+          // Handle the response from the backend if needed
+          setResult(response.data.price);
+        })
+        .catch((error) => {
+          // Handle any errors if the request fails
+          console.error('Error:', error);
+        });
+    };
+    let s=place.price
+  
+    const [result, setResult] = useState(s);
+
     if (redirect) {
         return <Navigate to={redirect} />
     }
@@ -46,7 +72,8 @@ const BookingWidget = ({ place }) => {
 
         <div className='bg-white shadow p-4 rounded-2xl mt-4'>
             <div className="text-2xl text-center my-4">
-                Price : ₹{place.price} /per hour
+            <button onClick={calculatePrice}>Calculate Price</button> 
+                Price : ₹${result} /per hour
             </div>
             <div className='border rounded-2xl mt-4'>
                 <div className="flex justify-between align-middle">
