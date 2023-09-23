@@ -31,7 +31,7 @@ const BookingWidget = ({ place }) => {
     }
 
     async function bookThisPlace() {
-        const data = { checkIn, checkOut, name, phone, place: place._id, price: numberOfNights * place.price, guests }
+        const data = { checkIn, checkOut, name, phone, place: place._id, price: numberOfNights * result, guests }
         const response = await axios.post('/bookings', data)
         const bookingId = response.data._id
         setRedirect(`/account/booking/${bookingId}`)
@@ -48,7 +48,7 @@ const BookingWidget = ({ place }) => {
         city: place.address,
       };
       console.log(dataToSend)
-  
+      
       // Make a POST request to the backend API
       axios.post('http://127.0.0.1:8080/api/prd', dataToSend)
         .then((response) => {
@@ -111,7 +111,7 @@ const BookingWidget = ({ place }) => {
                 <button className="primary mt-4" onClick={bookThisPlace}>Book this place
                     {numberOfNights > 0 && (
                         <span>
-                            &nbsp;₹{numberOfNights * place.price}
+                            &nbsp;₹{numberOfNights * result}
                         </span>
                     )}
                 </button>

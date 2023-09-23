@@ -1,0 +1,73 @@
+/* Table styling in Table.css */
+.btn{
+    margin-top: 24px;
+    margin-left: 20px;
+    border-radius: 12px;
+    background-color: rgb(136, 136, 161); /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px; /* Adjust margin as needed */
+  }
+  
+  .custom-table th, .custom-table td {
+    padding: 10px; /* Adjust padding as needed */
+   
+    border: 1px solid #ccc; /* Add borders or adjust border styles as needed */
+  }
+  
+  .custom-table th {
+    background-color: #f2f2f2; /* Header background color */
+    font-weight: bold;
+    text-align: left;
+  }
+  .custom-table tbody td btn1{
+    margin-top: 24px;
+    margin-left: 20px;
+    border-radius: 12px;
+    background-color: rgb(54, 54, 189); /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  }
+  #button1{
+    margin-left: 8px;
+    margin-top: 8px;
+    margin-left: 20px;
+    border-radius: 12px;
+    background-color: rgb(66, 181, 99); /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  }
+  
+  #button2{
+    margin-top: 8px;
+    margin-left: 20px;
+    border-radius: 12px;
+    background-color: rgb(189, 54, 74); /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  }
+  
