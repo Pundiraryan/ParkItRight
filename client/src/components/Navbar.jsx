@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../userContext'
-// import globe from '../assets/world-globe.png'
+import globe from '../assets/world-globe.png'
 import park from '../assets/parking.png'
 import report from '../assets/air-horn.png'
 const Navbar = () => {
@@ -10,7 +10,7 @@ const Navbar = () => {
         <>
   {/* Main navigation container */}
   <nav
-    className="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-white py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-white lg:py-2"
+    className="relative flex w-full flex-wrap items-center justify-between bg-primary py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-primary lg:py-4"
     data-te-navbar-ref=""
   >
     <div className="flex w-full flex-wrap items-center justify-between px-3">
@@ -19,9 +19,9 @@ const Navbar = () => {
           className="mx-12 my-1 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 lg:mb-0 lg:mt-0"
           href="#"
         >
-            <Link to='/' className='flex items-center gap-2'>
+            <Link to='/' className='flex items-center gap-3'>
                    <img src={park} alt="" className='w-[40px]' />
-                   <span className='font-bold text-2xl text-black'>ParkItRight</span>
+                   <span className='font-bold text-2xl text-white'>ParkItRight</span>
 
                  </Link>
         </div>
@@ -37,7 +37,7 @@ const Navbar = () => {
         aria-label="Toggle navigation"
       >
         {/* Hamburger icon */}
-        <span className="[&>svg]:w-7">
+        {/* <span className="[&>svg]:w-7">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -50,11 +50,11 @@ const Navbar = () => {
               clipRule="evenodd"
             />
           </svg>
-        </span>
+        </span> */}
       </button>
       {/* Collapsible navbar container */}
       <div
-        className="!visible mt-2 hidden flex-grow basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto pr-3"
+        className="!visible mt-2 hidden flex-grow basis-[100%] items-center sm:mt-0 sm:!flex sm:basis-auto"
         id="navbarSupportedContent4"
         data-te-collapse-item=""
       >
@@ -104,17 +104,17 @@ const Navbar = () => {
             type="button"
             data-te-ripple-init=""
             data-te-ripple-color="light"
-            className="mr-16 inline-block rounded px-6 pb-2 pt-2.5 border-black text-xs font-medium uppercase leading-normal text-black transition duration-150 ease-in-out  focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none"
+            className="mr-16 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out  focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 motion-reduce:transition-none"
           >
-            <Link to={user ? 'account' : '/login'} className='flex items-center gap-2 border bg-gray-300 border-gray-300 rounded-full py-2 px-3 hover:shadow-md shadow-gray-200'>
+            <Link to={user ? 'account' : '/login'} className='flex items-center gap-2 border border-gray-300 rounded-full py-2 px-6 hover:shadow-md shadow-gray-200'>
                <div>
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="black" className="w-6 h-6">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="w-6 h-6 overflow-hidden">
                              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                          </svg>
 
                      </div>
                      <div className='bg-gray-500 text-white rounded-full border border-gray-500'>
-                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7 relative top-1 overflow-hidden">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 relative top-1 overflow-hidden">
                              <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
                          </svg>
 
@@ -125,27 +125,27 @@ const Navbar = () => {
 
                 </Link>
           </button>
-          {/* <button
+          <button
             type="button"
             data-te-ripple-init=""
             data-te-ripple-color="light"
             className="mr-3 inline-block rounded  px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-          > */}
+          >
              <Link to='/report'>
                      {/* <img src={report} alt="" className='w-[40px]' />
                      <span className='font-bold text-xl text-primary'>Report</span>
                      */}
-                     <div className="px-2 py-1 bg-red-400 flex items-center overflow-hidden rounded-full border hover:shadow-lg">
+                     <div className="px-2 flex items-center overflow-hidden rounded-full border border-gray-300 shadow-sm hover:shadow-lg">
                          <img
                              className="h-10 w-10 md:h-10 md:w-10"
                              src={report}
                              alt=""
                          /><br />
-                       <p className='text-black text-md'>Report</p>
+                       <p className='text-black+ text-sm'>Report</p>
                     </div>
 
              </Link>
-          {/* </button> */}
+          </button>
          
         </div>
       </div>
