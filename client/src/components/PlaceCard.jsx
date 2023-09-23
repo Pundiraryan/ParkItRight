@@ -30,7 +30,10 @@ export const PlaceCard = ({place,index}) => {
       axios.post('http://127.0.0.1:8080/api/prd', dataToSend)
         .then((response) => {
           // Handle the response from the backend if needed
-          setResult(response.data.price);
+          //setResult(response.data.price);
+          setResult(response.data.ans);
+          console.log(response.data);
+          console.log(result);
         })
         .catch((error) => {
           // Handle any errors if the request fails
