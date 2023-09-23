@@ -7,9 +7,9 @@ const Layout = () => {
   return (
     <div className=' font-primary flex flex-col min-h-screen'>
       <Navbar/>
-      <div className="mx-auto bg-white flex min-h-screen max-w-screen-xxl flex-col">
+      {/* <div className="mx-auto bg-white flex min-h-screen max-w-screen-xxl flex-col"> */}
         <Outlet />
-      </div>
+      {/* </div> */}
       <Foot />
     </div>
   )
