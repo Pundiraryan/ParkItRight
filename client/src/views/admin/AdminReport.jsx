@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios';
+import './Table.css';
 const AdminReport = () => {
   const [cruds, setCruds] = useState([]);
   const bringdata=async()=>{
@@ -18,17 +19,20 @@ const AdminReport = () => {
   // console.log(arr.length);
   return (
     <>
-      <button onClick={bringdata}>Show</button>
+    <div className='btn'>
+    <button onClick={bringdata}>Show</button>
+    </div>
+      
       <div className="container">
       <div className="table-responsive">
-			<table className="table riped  table-hover table-bordered container">
+			<table className="custom-table table riped  table-hover table-bordered container">
 				<thead>
         <tr>
 						<th>Reg_no</th>
 						<th>Address</th>		{/* <th>Location</th> */}
-						<th>Accept</th>
+						<th>Status</th>
 						{/* <th>Edit</th> */}
-						<th>Decline</th>
+						<th>Status</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -41,12 +45,12 @@ const AdminReport = () => {
                   <td>{crud.address}</td>
 									{/* <td>{crud.Reg_no}</td>
 									<td>{crud.address}</td>
-									<td>{crud.Active_}</td> */}
+									<td>hcrud.Active_}</td> */}
 									<td>
-                    <button type="button" className="btn btn-success">Accept</button>
+                    <button type="button" className="btn1 btn-success" id="button1">Accept</button>
 									</td>
 									<td>
-                  <button type="button" className="btn btn-danger">Reject</button>
+                  <button type="button" className="btn2 btn-danger" id="button2">Reject</button>
 									</td>
 								</tr>
                 // </tr>

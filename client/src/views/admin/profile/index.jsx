@@ -1,6 +1,8 @@
 // import React from "react";
 import React,{ useState } from "react";
 import axios from "axios";
+import '../Table.css';
+import { MdMargin } from "react-icons/md";
 const ProfileOverview = () => {
   const [cruds, setCruds] = useState([]);
   const bringdata=async()=>{
@@ -19,24 +21,34 @@ const ProfileOverview = () => {
   // console.log(arr.length);
   return (
     <>
-      <button onClick={bringdata}>Show</button>
+	<div className="btn">
+	<button onClick={bringdata}>Show</button>
+	</div>
+      
       <div className="container">
       <div className="table-responsive">
-			<table className="table riped  table-hover table-bordered container">
-				<thead>
-        <tr>
+			<table className="custom-table">
+			<thead>
+				
+				
+        <tr className="rowspan:4">
+
 						<th>Reg_no</th>
 						<th>Address</th>		{/* <th>Location</th> */}
-						<th>Accept</th>
+						<th>Status</th>
 						{/* <th>Edit</th> */}
-						<th>Decline</th>
+						<th>Status</th>
 					</tr>
+				
 				</thead>
 				<tbody>
+
+				
 					{cruds&&
 						cruds.map((crud) => {
 							return (
                 // <tr >
+				
 								<tr key={crud._id}>
                   <td>{crud.Reg_no}</td>
                   <td>{crud.address}</td>
@@ -44,10 +56,10 @@ const ProfileOverview = () => {
 									<td>{crud.address}</td>
 									<td>{crud.Active_}</td> */}
 									<td>
-                    <button type="button" className="btn btn-success">Accept</button>
+                    <button type="button" className="btn1 btn-success" id="button1">Accept</button>
 									</td>
 									<td>
-                  <button type="button" className="btn btn-danger">Reject</button>
+                  <button type="button" className="btn2 btn-danger" id="button2">Reject</button>
 									</td>
 								</tr>
                 // </tr>
