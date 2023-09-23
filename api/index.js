@@ -359,7 +359,27 @@ app.get('/report/view',async(req,res)=>{
           message: 'Internal server error',
         });
       }
-})
+});
+
+app.put('/report/view/:id',async(req,res)=>{
+    try{
+        const { id } = req.params;
+        const report= await Report.findById(id);
+        //console.log("hello");
+        //report.set({active:false});
+        report.Active_=false;
+        await report.save();
+        res.status(200).json({
+            message:"sucess",
+            
+          });
+
+    }catch (err) {
+        res.status(500).json({
+          message: 'Internal server error',
+        });
+      }
+});
 //suggest nearest parking -- by the nearest longitudes and latitudes
 app.post('/recommendnearestplace',async (req,res)=>{
     try {
